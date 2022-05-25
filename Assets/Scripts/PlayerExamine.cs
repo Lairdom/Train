@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerExamine : MonoBehaviour
 {
     public bool examine;
+    EnterTraincar traincar;
     private void OnTriggerStay2D(Collider2D col) {
         if (col.tag == "Person" && examine == true) {
             // Start Dialogue
@@ -12,7 +13,13 @@ public class PlayerExamine : MonoBehaviour
         }
         else if (col.tag == "Interactable" && examine == true) {
             // Examine Object
-            Debug.Log("Examine");
+            if (col.gameObject.name == "TrainExit") {
+                traincar.goNext = true;
+            }
+            else if (col.gameObject.name == "TrainEntrance") {
+                traincar.goPrev = true;
+            }
+            
         }
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         examine = false;
@@ -22,6 +29,7 @@ public class PlayerExamine : MonoBehaviour
     void Start()
     {
         examine = false;
+        traincar = GameObject.Find("Train").GetComponent<EnterTraincar>();
     }
 
     // Update is called once per frame
