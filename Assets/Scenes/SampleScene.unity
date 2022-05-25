@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 413072440}
   m_Layer: 0
   m_Name: TrainEntrance
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -843,7 +843,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.009783238, y: -0.019297004}
+  m_Offset: {x: 0.010108978, y: 0.17589578}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -854,7 +854,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5674272, y: 3.7916653}
+  m_Size: {x: 0.58971137, y: 1.3564024}
   m_EdgeRadius: 0
 --- !u!1 &1545284236
 GameObject:
@@ -997,8 +997,8 @@ GameObject:
   - component: {fileID: 2091078430}
   - component: {fileID: 2091078432}
   - component: {fileID: 2091078433}
-  - component: {fileID: 2091078429}
   - component: {fileID: 2091078434}
+  - component: {fileID: 2091078429}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1102,7 +1102,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!61 &2091078433
