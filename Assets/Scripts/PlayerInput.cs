@@ -6,12 +6,11 @@ public class PlayerInput : MonoBehaviour
 {
     Vector2 playerInput;
     float moveSpeed = 4;
-    public bool examine;
 
     // Start is called before the first frame update
     void Start()
     {
-        examine = false;
+
     }
 
     // Update is called once per frame
@@ -41,8 +40,8 @@ public class PlayerInput : MonoBehaviour
         }
 
         // Examine
-        if (Input.GetButton("Fire1")) {
-            transform.GetComponentInChildren<PlayerExamine>().examine = true;
+        if (Input.GetButtonDown("Fire1")) {
+            transform.GetComponent<PlayerExamine>().examine = true;
         }
     }
 }

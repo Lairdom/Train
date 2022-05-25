@@ -14,6 +14,7 @@ public class PlayerExamine : MonoBehaviour
             // Examine Object
             Debug.Log("Examine");
         }
+        
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         examine = false;
     }
@@ -21,7 +22,7 @@ public class PlayerExamine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        examine = false;
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class PlayerExamine : MonoBehaviour
     {
         if (examine == true) {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            Debug.Log("examined");
         }
     }
 }
