@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Person
   - Interactable
+  - Background
   layers:
   - Default
   - TransparentFX
