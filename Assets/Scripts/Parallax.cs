@@ -6,7 +6,7 @@ public class Parallax : MonoBehaviour
 {
     GameObject TargetObject;
     [SerializeField] float MoveSpeed, BGWidth;
-
+    
     float Distance;
     // Start is called before the first frame update
     void Start()
