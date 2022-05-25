@@ -41,7 +41,7 @@ public class PlayerInput : MonoBehaviour
 
         // Examine
         if (Input.GetButtonDown("Fire1")) {
-            transform.GetComponent<PlayerExamine>().examine = true;
+            transform.GetComponentInChildren<PlayerExamine>().examine = true;
         }
     }
 }

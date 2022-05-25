@@ -14,8 +14,7 @@ public class PlayerExamine : MonoBehaviour
             // Examine Object
             Debug.Log("Examine");
         }
-        
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
         examine = false;
     }
 
@@ -29,8 +28,10 @@ public class PlayerExamine : MonoBehaviour
     void Update()
     {
         if (examine == true) {
-            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             Debug.Log("examined");
         }
+        else
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
