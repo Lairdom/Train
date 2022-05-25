@@ -6,11 +6,12 @@ public class PlayerInput : MonoBehaviour
 {
     Vector2 playerInput;
     float moveSpeed = 4;
+    Animator _animator;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -18,6 +19,12 @@ public class PlayerInput : MonoBehaviour
     {
         // Hahmon liike
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Mathf.Abs(playerInput.x) > 0) {
+            _animator.Play("PlayerWalk");
+        }
+        else 
+            _animator.Play("PlayerIdle");
+            
         if (playerInput.x > 0) {
             transform.position += transform.right * moveSpeed * Time.deltaTime;
         }
