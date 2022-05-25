@@ -29,7 +29,6 @@ public class PlayerExamine : MonoBehaviour
     {
         if (examine == true) {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            Debug.Log("examined");
         }
         else
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
