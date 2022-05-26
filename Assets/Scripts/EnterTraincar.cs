@@ -23,19 +23,22 @@ public class EnterTraincar : MonoBehaviour
     IEnumerator ChangeTraincar() {
         // Fadeout
         yield return new WaitForSeconds(0.2f);
-        MovePlayer();                                                                                               // Move Player to correct side of the train
-        Destroy(npc1); Destroy(npc2); Destroy(npc3);                                                                // Destroy all NPCs
+        MovePlayer();                                    // Move Player to correct side of the train
+        Destroy(npc1); Destroy(npc2); Destroy(npc3);     // Destroy all NPCs
         if (traincar == "Car1") {
             // Instantiate Traincar 1 NPCs & Objects
         }
         else if (traincar == "Car2") {
-            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,transform.parent);              // Instantiate Traincar 2 NPCs & Objects
+            // Instantiate Traincar 2 NPCs & Objects
+            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,transform.parent);              
         }
         else if (traincar == "Car3") {
             // Instantiate Traincar 3 NPCs & Objects
         }
         else if (traincar == "Car4") {
             // Instantiate Traincar 4 NPCs & Objects
+            npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,transform.parent);
+            npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,transform.parent);
         }
         // Fadein
     }
@@ -56,9 +59,7 @@ public class EnterTraincar : MonoBehaviour
                 goNext = false;
             }
             else if (goPrev == true) {
-                Debug.Log("Entering Traincar 4");
-                traincar = "Car4";
-                StartCoroutine(ChangeTraincar());
+                Debug.Log("Locked");
                 goPrev = false;
             }
         }
@@ -92,9 +93,7 @@ public class EnterTraincar : MonoBehaviour
         }
         else if (traincar == "Car4") {
             if (goNext == true) {
-                Debug.Log("Entering Traincar 1");
-                traincar = "Car1";
-                StartCoroutine(ChangeTraincar());
+                Debug.Log("Locked");
                 goNext = false;
             }
             else if (goPrev == true) {
