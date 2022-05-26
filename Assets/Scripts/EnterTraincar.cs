@@ -39,7 +39,7 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car2") {
             carNumber.text = "3";
             // Instantiate Traincar 2 NPCs & Objects
-            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,transform.parent);              
+            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);              
         }
         else if (traincar == "Car3") {
             carNumber.text = "4";
@@ -48,8 +48,8 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car4") {
             carNumber.text = "";
             // Instantiate Traincar 4 NPCs & Objects
-            npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,transform.parent);
-            npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,transform.parent);
+            npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,this.transform);
+            npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,this.transform);
         }
         fadeIn = true;                                     // Fadein
         fadeTimer = 0;
