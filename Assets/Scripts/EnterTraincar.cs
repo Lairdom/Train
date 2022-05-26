@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnterTraincar : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class EnterTraincar : MonoBehaviour
     SpriteRenderer blackScreen;
     float fadeTimer;
     bool fadeOut = false, fadeIn = false;
+    TextMeshPro carNumber;
 
     void MovePlayer() {
         if (player.transform.position.x > 0) {
@@ -31,16 +33,20 @@ public class EnterTraincar : MonoBehaviour
         MovePlayer();                                       // Move Player to correct side of the train
         Destroy(npc1); Destroy(npc2); Destroy(npc3);        // Destroy all NPCs
         if (traincar == "Car1") {
+            carNumber.text = "2";
             // Instantiate Traincar 1 NPCs & Objects
         }
         else if (traincar == "Car2") {
+            carNumber.text = "3";
             // Instantiate Traincar 2 NPCs & Objects
             npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,transform.parent);              
         }
         else if (traincar == "Car3") {
+            carNumber.text = "4";
             // Instantiate Traincar 3 NPCs & Objects
         }
         else if (traincar == "Car4") {
+            carNumber.text = "";
             // Instantiate Traincar 4 NPCs & Objects
             npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,transform.parent);
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,transform.parent);
@@ -52,6 +58,7 @@ public class EnterTraincar : MonoBehaviour
     {
         player = GameObject.Find("Player");
         blackScreen = GameObject.Find("Blackscreen").GetComponent<SpriteRenderer>();
+        carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
     }
 
     void Update()
