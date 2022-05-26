@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2469a07dfa504b44e90847a0aa8438b2
+guid: 22ebaa3caba17e5429b410e24b08cd4f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -20,12 +20,6 @@ TextureImporter:
   - first:
       213: -7713359899473670213
     second: Character3_5
-  - first:
-      213: 6101480301285660599
-    second: Character3_6
-  - first:
-      213: 3380523199526433382
-    second: Character3_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,12 +124,12 @@ TextureImporter:
       name: Character3_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 21
-        width: 15
+        x: 4
+        y: 23
+        width: 13
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,12 +145,12 @@ TextureImporter:
       name: Character3_1
       rect:
         serializedVersion: 2
-        x: 185
-        y: 21
+        x: 25
+        y: 23
         width: 15
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,12 +166,12 @@ TextureImporter:
       name: Character3_2
       rect:
         serializedVersion: 2
-        x: 315
-        y: 21
-        width: 15
+        x: 47
+        y: 23
+        width: 14
         height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,12 +187,12 @@ TextureImporter:
       name: Character3_3
       rect:
         serializedVersion: 2
-        x: 445
-        y: 21
-        width: 15
-        height: 27
+        x: 69
+        y: 23
+        width: 16
+        height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,12 +208,12 @@ TextureImporter:
       name: Character3_4
       rect:
         serializedVersion: 2
-        x: 575
-        y: 22
-        width: 16
+        x: 91
+        y: 23
+        width: 15
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,12 +229,12 @@ TextureImporter:
       name: Character3_5
       rect:
         serializedVersion: 2
-        x: 705
-        y: 22
-        width: 18
-        height: 31
+        x: 113
+        y: 23
+        width: 16
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -248,48 +242,6 @@ TextureImporter:
       bones: []
       spriteID: bbf012fd904a4f490800000000000000
       internalID: -7713359899473670213
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character3_6
-      rect:
-        serializedVersion: 2
-        x: 835
-        y: 21
-        width: 15
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b7dc2ac100dca450800000000000000
-      internalID: 6101480301285660599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Character3_7
-      rect:
-        serializedVersion: 2
-        x: 965
-        y: 21
-        width: 16
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6627dbe60f70aee20800000000000000
-      internalID: 3380523199526433382
       vertices: []
       indices: 
       edges: []
