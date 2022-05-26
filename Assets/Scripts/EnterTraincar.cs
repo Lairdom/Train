@@ -5,9 +5,12 @@ using UnityEngine;
 public class EnterTraincar : MonoBehaviour
 {
     public string traincar;
-    public bool goNext, goPrev;
+    public bool goNext = false, goPrev = false;
     [SerializeField] GameObject addict, hustler, parent, programmer, priest;
     GameObject player, npc1, npc2, npc3;
+    SpriteRenderer blackScreen;
+    float fadeTimer;
+    bool fadeOut = false, fadeIn = false;
 
     void MovePlayer() {
         if (player.transform.position.x > 0) {
@@ -21,10 +24,12 @@ public class EnterTraincar : MonoBehaviour
 
     }
     IEnumerator ChangeTraincar() {
-        // Fadeout
-        yield return new WaitForSeconds(0.2f);
-        MovePlayer();                                    // Move Player to correct side of the train
-        Destroy(npc1); Destroy(npc2); Destroy(npc3);     // Destroy all NPCs
+        fadeOut = true;                                     // Fadeout
+        fadeTimer = 0;
+        //Play door soundeffect
+        yield return new WaitForSeconds(1);
+        MovePlayer();                                       // Move Player to correct side of the train
+        Destroy(npc1); Destroy(npc2); Destroy(npc3);        // Destroy all NPCs
         if (traincar == "Car1") {
             // Instantiate Traincar 1 NPCs & Objects
         }
@@ -40,13 +45,13 @@ public class EnterTraincar : MonoBehaviour
             npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,transform.parent);
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,transform.parent);
         }
-        // Fadein
+        fadeIn = true;                                     // Fadein
+        fadeTimer = 0;
     }
     void Start()
     {
         player = GameObject.Find("Player");
-        goNext = false;
-        goPrev = false;
+        blackScreen = GameObject.Find("Blackscreen").GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -103,5 +108,20 @@ public class EnterTraincar : MonoBehaviour
                 goPrev = false;
             }
         }
+
+        // Lerp FadeOut and FadeIn
+        if (fadeOut == true) {
+            blackScreen.color = new Color(0,0,0,Mathf.Lerp(0,1,fadeTimer));
+            if (blackScreen.color.a == 1) {
+                fadeOut = false;
+            }
+        }
+        else if (fadeIn == true) {
+            blackScreen.color = new Color(0,0,0,Mathf.Lerp(1,0,fadeTimer));
+            if (blackScreen.color.a == 0) {
+                fadeIn = false;
+            }
+        }
+        fadeTimer += Time.deltaTime *5;
     }
 }

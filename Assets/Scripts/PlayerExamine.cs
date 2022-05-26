@@ -38,7 +38,7 @@ public class PlayerExamine : MonoBehaviour
         if (examine == true) {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         }
-        else
+        else 
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
