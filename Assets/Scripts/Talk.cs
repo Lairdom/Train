@@ -50,8 +50,11 @@ public class Talk : MonoBehaviour
         }
     }
 
-    public void StartDialogue()
+    public void StartDialogue(string name)
     {
+        if (name == "PassengerParent(Clone)") {
+            Debug.Log("Parent Talking");
+        }
         started = true;
         ind = 0;
         textComponent.text = "";

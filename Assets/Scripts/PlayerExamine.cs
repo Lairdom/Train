@@ -13,7 +13,7 @@ public class PlayerExamine : MonoBehaviour
             if (dialog.started == true)
                 dialog.NextLine();
             else 
-                dialog.StartDialogue();
+                dialog.StartDialogue(col.name);
             
             Debug.Log("Dialogue");
         }
