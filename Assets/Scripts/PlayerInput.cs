@@ -7,11 +7,13 @@ public class PlayerInput : MonoBehaviour
     Vector2 playerInput;
     float moveSpeed = 4;
     Animator _animator;
+    Talk dialog;
 
     // Start is called before the first frame update
     void Start()
     {
         _animator = gameObject.GetComponent<Animator>();
+        dialog = GameObject.Find("DialogueBox").GetComponent<Talk>();
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class PlayerInput : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (Mathf.Abs(playerInput.x) > 0 && Fade.IsFading == false) {
             gameObject.GetComponentInChildren<PlayerExamine>().examining = false;
+            dialog.started = false;
             _animator.Play("PlayerWalk");
         }
         else 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3301060526619710927}
   - component: {fileID: 3301060526619710924}
   - component: {fileID: 3301060526619710929}
+  - component: {fileID: 1791202351172086644}
   m_Layer: 0
   m_Name: PassengerParent
   m_TagString: Person
@@ -129,3 +130,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1791202351172086644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3301060526619710925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbf2272f72de87648a8574c8ff36099d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - 
+  - 
+  - 
+  - 
+  lines2:
+  - 
+  - 
+  - 
+  - 
