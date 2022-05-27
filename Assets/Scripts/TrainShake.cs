@@ -7,9 +7,11 @@ public class TrainShake : MonoBehaviour
     float timer, randomTime;
 
     IEnumerator Shake() {
-        gameObject.transform.position = new Vector3(0,0.05f);
-        yield return new WaitForSeconds(0.2f);
-        gameObject.transform.position = new Vector3(0,0);
+        if(BGManager.instance.IsMoving == true){
+            gameObject.transform.position = new Vector3(0,0.05f);
+            yield return new WaitForSeconds(0.2f);
+            gameObject.transform.position = new Vector3(0,0);
+        }
     }
 
     void Start()

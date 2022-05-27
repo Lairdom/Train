@@ -14,7 +14,8 @@ public class Parallax : MonoBehaviour
     void Start()
     {
         TargetObject = transform.parent.gameObject;
-        BGManager.instance.startTrain();
+        Invoke("TrainStart", 2f);
+        Invoke("TrainStop", 30f);
     }
 
     // Update is called once per frame
@@ -26,10 +27,8 @@ public class Parallax : MonoBehaviour
             Vector2.Distance(new Vector2(transform.position.x, 0f), 
             new Vector2(TargetObject.transform.position.x, 0f));
 
-            Debug.Log(playerInput);
-
         transform.position -= transform.right * 
-        ((MoveSpeed + -playerInput)) 
+        ((MoveSpeed + -playerInput)  * BGManager.instance.MoveSpeed) 
         * Time.deltaTime;
 
         if(Distance > BGWidth){
@@ -37,5 +36,13 @@ public class Parallax : MonoBehaviour
                 transform.position.x + BGWidth, 
                 transform.position.y, transform.position.z);
         }
+    }
+
+    void TrainStart(){
+        BGManager.instance.startTrain();
+    }
+
+    void TrainStop(){
+        BGManager.instance.stopTrain();
     }
 }
