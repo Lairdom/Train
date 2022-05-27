@@ -7,7 +7,6 @@ public class PlayerInput : MonoBehaviour
     Vector2 playerInput;
     float moveSpeed = 4;
     Animator _animator;
-    public bool examining;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,7 @@ public class PlayerInput : MonoBehaviour
         // Hahmon liike
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (Mathf.Abs(playerInput.x) > 0) {
-            examining = false;
+            gameObject.GetComponentInChildren<PlayerExamine>().examining = false;
             _animator.Play("PlayerWalk");
         }
         else 

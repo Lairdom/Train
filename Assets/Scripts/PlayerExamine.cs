@@ -9,6 +9,7 @@ public class PlayerExamine : MonoBehaviour
     Talk dialog;
     bool onTrigger;
     Collider2D col;
+    public bool examining;
 
     private void OnTriggerEnter2D(Collider2D collider) {
         onTrigger = true;
@@ -33,13 +34,14 @@ public class PlayerExamine : MonoBehaviour
         if (examine == true && onTrigger == true) {
             if (col.tag == "Person") {
                 // Start Dialogue
+                examining = true;
+                dialog.gameObject.SetActive(true);
                 if (dialog.started == true) {
                     dialog.NextLine();
                 }
                 else {
                     dialog.StartDialogue(col.name);
                     dialog.started = true;
-                    gameObject.GetComponentInParent<PlayerInput>().examining = true;
                 }
             }
             else if (col.tag == "Interactable") {
@@ -55,6 +57,11 @@ public class PlayerExamine : MonoBehaviour
         }
         else if (examine == true && onTrigger == false) {
             examine = false;
+        }
+
+        // Turn textbox off
+        if (examining == false) {
+            dialog.gameObject.SetActive(false);
         }
     }
 }
