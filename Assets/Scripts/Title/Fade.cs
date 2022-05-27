@@ -22,6 +22,7 @@ public class Fade : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 120;
         IsFading = false;
         BlackScreen = true;
         if (startFadeOut) alpha = 1f; else alpha = 0f;
