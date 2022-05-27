@@ -10,7 +10,7 @@ public class Fade : MonoBehaviour
 
     public float speedScale = 1f;
     public Color fadeColor = Color.black;
-    public AnimationCurve Curve = new AnimationCurve(new Keyframe(0,1),
+    AnimationCurve Curve = new AnimationCurve(new Keyframe(0,1),
         new Keyframe(0.5f, 0.5f, -1.5f, -1.5f), new Keyframe(1,0));
     public bool startFadeOut = false;
     private float alpha = 0f;
