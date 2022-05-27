@@ -14,13 +14,14 @@ public class TrainShake : MonoBehaviour
 
     void Start()
     {
+        randomTime = Random.Range(4,11);
         timer = 0;
     }
 
     void Update()
     {
-        randomTime = Random.Range(8,15);
         if (timer >= randomTime) {
+            randomTime = Random.Range(4,11);
             StartCoroutine(Shake());
             timer = 0;
         }
