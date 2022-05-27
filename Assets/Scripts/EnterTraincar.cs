@@ -10,7 +10,7 @@ public class EnterTraincar : MonoBehaviour
     [SerializeField] GameObject addict, hustler, parent, programmer, priest;
     GameObject player, npc1, npc2, npc3;
     SpriteRenderer blackScreen;
-    float fadeTimer;
+    float fadeTimer, timerMulti;
     bool fadeOut = false, fadeIn = false;
     TextMeshPro carNumber;
 
@@ -26,6 +26,7 @@ public class EnterTraincar : MonoBehaviour
 
     }
     IEnumerator ChangeTraincar() {
+        timerMulti = 5;
         fadeOut = true;                                     // Fadeout
         fadeTimer = 0;
         //Play door soundeffect
@@ -59,6 +60,9 @@ public class EnterTraincar : MonoBehaviour
         player = GameObject.Find("Player");
         blackScreen = GameObject.Find("Blackscreen").GetComponent<SpriteRenderer>();
         carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
+        fadeIn = true;
+        fadeTimer = 0;
+        timerMulti = 1/1.5f;
     }
 
     void Update()
@@ -129,6 +133,6 @@ public class EnterTraincar : MonoBehaviour
                 fadeIn = false;
             }
         }
-        fadeTimer += Time.deltaTime *5;
+        fadeTimer += Time.deltaTime * timerMulti;
     }
 }
