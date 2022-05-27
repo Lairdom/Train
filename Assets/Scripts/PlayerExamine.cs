@@ -6,9 +6,15 @@ public class PlayerExamine : MonoBehaviour
 {
     public bool examine;
     EnterTraincar traincar;
+    Talk dialog;
     private void OnTriggerStay2D(Collider2D col) {
         if (col.tag == "Person" && examine == true) {
             // Start Dialogue
+            if (dialog.started == true)
+                dialog.NextLine();
+            else 
+                dialog.StartDialogue();
+            
             Debug.Log("Dialogue");
         }
         else if (col.tag == "Interactable" && examine == true) {
@@ -30,6 +36,7 @@ public class PlayerExamine : MonoBehaviour
     {
         examine = false;
         traincar = GameObject.Find("Train").GetComponent<EnterTraincar>();
+        dialog = GameObject.Find("DialogueBox").GetComponent<Talk>();
     }
 
     // Update is called once per frame

@@ -13,21 +13,22 @@ public class Talk : MonoBehaviour
     [SerializeField] string[] lines = {};
 
     [SerializeField] TextMeshProUGUI textComponent;
+    public bool started;
 
 
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = "";
+        started = false;
 
-        StartDialogue();
+        //StartDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1") && textComponent.text == lines[ind])
-            NextLine();
+        // 
 
         if(Input.GetButtonDown("Fire2") && textComponent.text != lines[ind])
         {
@@ -37,7 +38,7 @@ public class Talk : MonoBehaviour
         }
     }
 
-    private void NextLine()
+    public void NextLine()
     {
         if(ind < lines.Length - 1)
         {
@@ -49,11 +50,13 @@ public class Talk : MonoBehaviour
         }
     }
 
-    private void StartDialogue()
+    public void StartDialogue()
     {
+        started = true;
         ind = 0;
-
+        textComponent.text = "";
         StartCoroutine("TypeLine");
+        
     }
 
     IEnumerator TypeLine()
