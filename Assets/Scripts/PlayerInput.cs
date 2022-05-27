@@ -19,26 +19,28 @@ public class PlayerInput : MonoBehaviour
     {
         // Hahmon liike
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (Mathf.Abs(playerInput.x) > 0) {
+        if (Mathf.Abs(playerInput.x) > 0 && Fade.IsFading == false) {
             gameObject.GetComponentInChildren<PlayerExamine>().examining = false;
             _animator.Play("PlayerWalk");
         }
         else 
             _animator.Play("PlayerIdle");
-                
-        if (playerInput.x > 0) {
-            transform.position += transform.right * moveSpeed * Time.deltaTime;
-        }
-        else if (playerInput.x < 0) {
-            transform.position -= transform.right * moveSpeed * Time.deltaTime;
-        }
+        if(Fade.IsFading == false){
+            if (playerInput.x > 0) {
+                transform.position += transform.right * moveSpeed * Time.deltaTime;
+            }
+            else if (playerInput.x < 0) {
+                transform.position -= transform.right * moveSpeed * Time.deltaTime;
+            }
+        
 
         //Käännetään sprite ympäri jos liikutaan vasemmalle tai oikealle
-        if (playerInput.x < 0) {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else if (playerInput.x > 0) {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            if (playerInput.x < 0) {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (playerInput.x > 0) {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
 
         // Examine

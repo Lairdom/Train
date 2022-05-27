@@ -15,14 +15,21 @@ public class Parallax : MonoBehaviour
     {
         TargetObject = transform.parent.gameObject;
         Invoke("TrainStart", 2f);
-        Invoke("TrainStop", 30f);
     }
 
     // Update is called once per frame
     void Update()
     {
         playerInput = (Input.GetAxisRaw("Horizontal"));
-        if (playerInput < 0f) {playerInput = -3;} else if (playerInput > 0f) {playerInput = 2;}
+        if(Fade.IsFading == false){
+            if (playerInput < 0f) {
+                playerInput = -3;
+            } else if (playerInput > 0f) {
+                playerInput = 2;
+            }
+        } else {
+            playerInput = 0f;
+        }
         Distance = 
             Vector2.Distance(new Vector2(transform.position.x, 0f), 
             new Vector2(TargetObject.transform.position.x, 0f));

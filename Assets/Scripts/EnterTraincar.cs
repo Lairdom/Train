@@ -9,9 +9,7 @@ public class EnterTraincar : MonoBehaviour
     public bool goNext = false, goPrev = false;
     [SerializeField] GameObject addict, hustler, parent, programmer, priest;
     GameObject player, npc1, npc2, npc3;
-    SpriteRenderer blackScreen;
-    float fadeTimer, timerMulti;
-    bool fadeOut = false, fadeIn = false;
+
     TextMeshPro carNumber;
 
     void MovePlayer() {
@@ -26,10 +24,9 @@ public class EnterTraincar : MonoBehaviour
 
     }
     IEnumerator ChangeTraincar() {
-        player.GetComponentInChildren<PlayerExamine>().screenFade = true;
-        timerMulti = 5;
-        fadeOut = true;                                     // Fadeout
-        fadeTimer = 0;
+        //player.GetComponentInChildren<PlayerExamine>().screenFade = true;
+        Fade.RequestFade = true;
+
         //Play door soundeffect
         yield return new WaitForSeconds(1);
         MovePlayer();                                       // Move Player to correct side of the train
@@ -53,22 +50,18 @@ public class EnterTraincar : MonoBehaviour
             npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,this.transform);
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,this.transform);
         }
-        fadeIn = true;                                     // Fadein
-        fadeTimer = 0;
-        player.GetComponentInChildren<PlayerExamine>().screenFade = false;
+        Fade.RequestFade = true;
+        //player.GetComponentInChildren<PlayerExamine>().screenFade = false;
     }
     void Start()
     {
         player = GameObject.Find("Player");
-        blackScreen = GameObject.Find("Blackscreen").GetComponent<SpriteRenderer>();
         carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
-        fadeIn = true;
-        fadeTimer = 0;
-        timerMulti = 1/1.5f;
     }
 
     void Update()
     {
+        player.GetComponentInChildren<PlayerExamine>().screenFade = Fade.IsFading;
         if (traincar == "Car1") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 2");
@@ -121,20 +114,5 @@ public class EnterTraincar : MonoBehaviour
                 goPrev = false;
             }
         }
-
-        // Lerp FadeOut and FadeIn
-        if (fadeOut == true) {
-            blackScreen.color = new Color(0,0,0,Mathf.Lerp(0,1,fadeTimer));
-            if (blackScreen.color.a == 1) {
-                fadeOut = false;
-            }
-        }
-        else if (fadeIn == true) {
-            blackScreen.color = new Color(0,0,0,Mathf.Lerp(1,0,fadeTimer));
-            if (blackScreen.color.a == 0) {
-                fadeIn = false;
-            }
-        }
-        fadeTimer += Time.deltaTime * timerMulti;
     }
 }

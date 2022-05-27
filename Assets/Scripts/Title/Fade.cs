@@ -18,8 +18,11 @@ public class Fade : MonoBehaviour
     private int direction = 0;
     private float time = 0f;
 
+    public static bool IsFading = false;
+
     void Start()
     {
+        IsFading = false;
         BlackScreen = true;
         if (startFadeOut) alpha = 1f; else alpha = 0f;
         texture = new Texture2D(1,1);
@@ -32,6 +35,7 @@ public class Fade : MonoBehaviour
     {
         if (direction == 0 && RequestFade == true)
         {
+            IsFading = true;
             RequestFade = false;
             if (alpha >= 1f){
                 alpha = 1f;
@@ -53,7 +57,7 @@ public class Fade : MonoBehaviour
             alpha = Curve.Evaluate(time);
             texture.SetPixel(0,0, new Color (fadeColor.r, fadeColor.g, fadeColor.b, alpha));
             texture.Apply();
-            if(alpha <= 0f || alpha >= 1f) direction = 0;
+            if(alpha <= 0f || alpha >= 1f) {direction = 0; IsFading = false;}
         }
         BlackScreen = alpha > 0.1f;
     }
