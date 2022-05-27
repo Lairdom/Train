@@ -10,6 +10,7 @@ public class PlayerExamine : MonoBehaviour
     bool onTrigger;
     Collider2D col;
     public bool examining;
+    public bool screenFade;
 
     private void OnTriggerEnter2D(Collider2D collider) {
         onTrigger = true;
@@ -26,12 +27,14 @@ public class PlayerExamine : MonoBehaviour
         examine = false;
         traincar = GameObject.Find("Train").GetComponent<EnterTraincar>();
         dialog = GameObject.Find("DialogueBox").GetComponent<Talk>();
+        screenFade = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (examine == true && onTrigger == true) {
+            examine = false;
             if (col.tag == "Person") {
                 // Start Dialogue
                 examining = true;
@@ -53,7 +56,6 @@ public class PlayerExamine : MonoBehaviour
                     traincar.goPrev = true;
                 }
             }
-        examine = false;
         }
         else if (examine == true && onTrigger == false) {
             examine = false;

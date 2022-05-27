@@ -26,6 +26,7 @@ public class EnterTraincar : MonoBehaviour
 
     }
     IEnumerator ChangeTraincar() {
+        player.GetComponentInChildren<PlayerExamine>().screenFade = true;
         timerMulti = 5;
         fadeOut = true;                                     // Fadeout
         fadeTimer = 0;
@@ -54,6 +55,7 @@ public class EnterTraincar : MonoBehaviour
         }
         fadeIn = true;                                     // Fadein
         fadeTimer = 0;
+        player.GetComponentInChildren<PlayerExamine>().screenFade = false;
     }
     void Start()
     {
