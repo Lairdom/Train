@@ -7,28 +7,16 @@ public class PlayerExamine : MonoBehaviour
     public bool examine;
     EnterTraincar traincar;
     Talk dialog;
-    private void OnTriggerStay2D(Collider2D col) {
-        if (col.tag == "Person" && examine == true) {
-            // Start Dialogue
-            if (dialog.started == true)
-                dialog.NextLine();
-            else 
-                dialog.StartDialogue(col.name);
-            
-            Debug.Log("Dialogue");
-        }
-        else if (col.tag == "Interactable" && examine == true) {
-            // Examine Object
-            if (col.gameObject.name == "TrainExit") {
-                traincar.goNext = true;
-            }
-            else if (col.gameObject.name == "TrainEntrance") {
-                traincar.goPrev = true;
-            }
-            
-        }
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        examine = false;
+    bool onTrigger;
+    Collider2D col;
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        onTrigger = true;
+        col = collider;
+    }
+    private void OnTriggerExit2D(Collider2D collider) {
+        onTrigger = false;
+        col = null;
     }
 
     // Start is called before the first frame update
@@ -42,10 +30,31 @@ public class PlayerExamine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (examine == true) {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        if (examine == true && onTrigger == true) {
+            if (col.tag == "Person") {
+                // Start Dialogue
+                if (dialog.started == true) {
+                    dialog.NextLine();
+                }
+                else {
+                    dialog.StartDialogue(col.name);
+                    dialog.started = true;
+                    gameObject.GetComponentInParent<PlayerInput>().examining = true;
+                }
+            }
+            else if (col.tag == "Interactable") {
+                // Examine Object
+                if (col.gameObject.name == "TrainExit") {
+                    traincar.goNext = true;
+                }
+                else if (col.gameObject.name == "TrainEntrance") {
+                    traincar.goPrev = true;
+                }
+            }
+        examine = false;
         }
-        else 
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        else if (examine == true && onTrigger == false) {
+            examine = false;
+        }
     }
 }

@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 725527027505119462, guid: 876a6ea93bfae9640bb86268192dfe7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 725527028107462790, guid: 876a6ea93bfae9640bb86268192dfe7f, type: 3}
       propertyPath: m_SizeDelta.y
       value: -365
@@ -1209,7 +1213,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453826829}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1431,6 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215a9acdf65b414281c11ccff024de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  examining: 0
 --- !u!212 &2091078430
 SpriteRenderer:
   m_ObjectHideFlags: 0
