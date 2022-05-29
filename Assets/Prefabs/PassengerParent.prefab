@@ -147,8 +147,28 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  yourLines:
+  - 
+  - 
+  - 
+  - 
+  - 
   lines2:
   - 
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  yourLines2:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  advance: 0
+  exhausted: 0

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 824534083554986647}
   - component: {fileID: 824534083554986640}
-  - component: {fileID: 824534083554986641}
   - component: {fileID: 8051538675077990568}
+  - component: {fileID: 824534083554986641}
   - component: {fileID: -312226723990349969}
   m_Layer: 0
   m_Name: PassengerHustler
@@ -85,25 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &824534083554986641
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 824534083554986642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ffb99b0c763747a41bba6a5b29f9d202, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &8051538675077990568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,6 +111,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46875, y: 0.96875}
   m_EdgeRadius: 0
+--- !u!95 &824534083554986641
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824534083554986642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ffb99b0c763747a41bba6a5b29f9d202, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-312226723990349969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +144,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - 
+  - 
+  yourLines:
+  - 
+  - 
   lines2:
   - 
   - 
@@ -153,3 +157,16 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  yourLines2:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  advance: 0
+  exhausted: 0
