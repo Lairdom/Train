@@ -14,10 +14,10 @@ public class Talk : MonoBehaviour
     [SerializeField] string[] yourLines = {};
     [SerializeField] TextMeshProUGUI textComponent, textComponent2;
     public bool parentAdvance, addictAdvance, hustlerAdvance, priestAdvance, programmerAdvance;
-    public bool started;
+    public bool started, end;
     public static Talk instance;
     string nimi;
-
+    EnterTraincar train;
 
     
     void Awake(){
@@ -29,6 +29,8 @@ public class Talk : MonoBehaviour
         textComponent2.text = "";
         parentAdvance = false; addictAdvance = false; hustlerAdvance = false;
         priestAdvance = false; programmerAdvance = false;
+        train = GameObject.Find("Train").GetComponent<EnterTraincar>();
+        end = false;
     }
 
     void Update()
@@ -52,14 +54,17 @@ public class Talk : MonoBehaviour
             StartCoroutine("TypeLine");
         }
         else if (ind >= lines.Length -1) {
-            if (nimi == "PassengerProg...(Clone)") {
+            if (nimi == "PassengerProg...(Clone)" && programmerAdvance == false) {
                 parentAdvance = true;
             }
             else if (nimi == "PassengerParent(Clone)" && parentAdvance == true) {
                 hustlerAdvance = true;
             }
-            else if (nimi == "PassengerHustler(Clone)" && parentAdvance == true && hustlerAdvance == true) {
+            else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == true) {
                 programmerAdvance = true;
+            }
+            else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == true) {
+                end = true;
             }
             GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
             started = false;
@@ -185,7 +190,7 @@ public class Talk : MonoBehaviour
             nimi = name;
 
             // Check if we have advanced programmer dialogue
-            if (priestAdvance == false) {
+            if (programmerAdvance == false) {
                 lines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().lines;
                 yourLines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().yourLines;
             }

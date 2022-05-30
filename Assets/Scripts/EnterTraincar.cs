@@ -8,7 +8,7 @@ public class EnterTraincar : MonoBehaviour
     public string traincar;
     public bool goNext = false, goPrev = false;
     [SerializeField] GameObject addict, hustler, parent, programmer, priest;
-    GameObject player, npc1, npc2, npc3;
+    GameObject player, npc1, npc2, npc3, npc4, npc5;
 
     TextMeshPro carNumber;
 
@@ -21,10 +21,31 @@ public class EnterTraincar : MonoBehaviour
             // Move to Exit
             player.transform.position = new Vector2(9.5f,player.transform.position.y);
         }
-
     }
+
+    public IEnumerator EndScene() {
+        Debug.Log("Started end scene");
+        
+        yield return new WaitForSeconds(2);
+        Destroy(npc1); Destroy(npc2); Destroy(npc3);
+        player.transform.position = new Vector2(0.45f,player.transform.position.y);
+        npc1 = Instantiate(addict,new Vector2(-9f,-0.80f),transform.rotation,this.transform);
+        npc2 = Instantiate(hustler,new Vector2(4f,-0.95f),transform.rotation,this.transform);
+        npc2.GetComponent<SpriteRenderer>().flipX = true;
+        npc3 = Instantiate(priest,new Vector2(-4f,-0.95f),transform.rotation,this.transform);
+        npc4 = Instantiate(parent,new Vector2(-2.25f,-0.95f),transform.rotation,this.transform);
+        npc5 = Instantiate(programmer,new Vector2(-8f,-0.95f),transform.rotation,this.transform);
+        npc5.GetComponent<SpriteRenderer>().flipX = true;
+        Fade.RequestFade = true;
+    }
+
     IEnumerator ChangeTraincar() {
         Fade.RequestFade = true;
+        // Check if we have reached end scene
+        if (GameObject.Find("GameManager").GetComponent<Talk>().end == true) {
+            StartCoroutine(EndScene());
+            yield break;
+        }
 
         //Play door soundeffect
         yield return new WaitForSeconds(1);
@@ -58,6 +79,7 @@ public class EnterTraincar : MonoBehaviour
         player = GameObject.Find("Player");
         carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
         npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);
+        
     }
 
     void Update()
