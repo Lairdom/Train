@@ -15,8 +15,13 @@ public class Talk : MonoBehaviour
     [SerializeField] TextMeshProUGUI textComponent, textComponent2;
     bool advance;
     public bool started;
+    public static Talk instance;
 
 
+    
+    void Awake(){
+        instance = this;
+    }
     void Start()
     {
         textComponent.text = "";
