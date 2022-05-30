@@ -32,6 +32,7 @@ public class Talk : MonoBehaviour
         priestAdvance = false; programmerAdvance = false;
         train = GameObject.Find("Train").GetComponent<EnterTraincar>();
         end = false; startEnd = false;
+        target = GameObject.Find("Player");
     }
 
     void Update()
@@ -41,20 +42,6 @@ public class Talk : MonoBehaviour
 
     public void NextLine()
     {
-        if (startEnd == true) {
-            if (ind == 0 || ind == 1 || ind == 3 || ind == 5 || ind == 8 || ind == 10 || ind == 12 || ind == 14 || ind == 16 || ind == 18) 
-                target = GameObject.Find("PassengerHustler(Clone)");
-            else if (ind == 2 || ind == 4 || ind == 6) 
-                target = GameObject.Find("PassengerPriest(Clone)");
-            else if (ind == 7 || ind == 9 || ind == 11 || ind == 13) 
-                target = GameObject.Find("PassengerProg...(Clone)");
-            else if (ind == 15) 
-                target = GameObject.Find("PassengerParent(Clone)");
-            else if (ind == 17) 
-                target = GameObject.Find("PassengerAddict(Clone)");
-            else
-                target = GameObject.Find("Player");
-        }
         if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
                 StopCoroutine("TypeLine");
                 textComponent.text = lines[ind];
@@ -81,9 +68,27 @@ public class Talk : MonoBehaviour
             else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == true) {
                 end = true;
             }
+            if (startEnd == true) {
+                StartCoroutine(Ending());
+                startEnd = false;
+            }
             GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
             started = false;
-            startEnd = false;
+            
+        }
+        if (startEnd == true) {
+            if (ind == 0 || ind == 1 || ind == 3 || ind == 5 || ind == 8 || ind == 10 || ind == 12 || ind == 14 || ind == 16 || ind == 18) 
+                target = GameObject.Find("PassengerHustler(Clone)");
+            else if (ind == 2 || ind == 4 || ind == 6) 
+                target = GameObject.Find("PassengerPriest(Clone)");
+            else if (ind == 7 || ind == 9 || ind == 11 || ind == 13) 
+                target = GameObject.Find("PassengerProg...(Clone)");
+            else if (ind == 15) 
+                target = GameObject.Find("PassengerParent(Clone)");
+            else if (ind == 17) 
+                target = GameObject.Find("PassengerAddict(Clone)");
+            else
+                target = GameObject.Find("Player");
         }
     }
 
@@ -254,5 +259,13 @@ public class Talk : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+    }
+
+    IEnumerator Ending() {
+        yield return new WaitForSeconds(1);
+        // Train slows down
+        // Door opens
+        Fade.RequestFade = true;
+        // To Be Continued
     }
 }

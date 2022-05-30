@@ -48,6 +48,8 @@ public class EndSceneLines : MonoBehaviour
         lines[17] = "Dude, don't look at me... I'm really not into violence.";
         // Hustler
         lines[18] = "Holy shit... What a fucking bunch of bitches. Aight, it's just the two of us, then. I mean, you've got your fucking head right. Right?";
+        // Player
+        lines[19] = "I... uh-";
         
         
         
