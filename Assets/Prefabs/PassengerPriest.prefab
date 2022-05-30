@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2821110260302329513}
   - component: {fileID: 3099910467522047014}
   - component: {fileID: 8906277512862144640}
+  - component: {fileID: -7195934493118427458}
   m_Layer: 0
   m_Name: PassengerPriest
   m_TagString: Person
@@ -129,3 +130,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-7195934493118427458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6051898626980408605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5f668d0ef6f8d428823a99adb8a35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  yourLines:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  lines2: []
+  yourLines2: []
+  advance: 0
+  exhausted: 0

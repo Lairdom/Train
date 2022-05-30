@@ -34,11 +34,12 @@ public class EnterTraincar : MonoBehaviour
         if (traincar == "Car1") {
             carNumber.text = "2";
             // Instantiate Traincar 1 NPCs & Objects
+            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);              
         }
         else if (traincar == "Car2") {
             carNumber.text = "3";
             // Instantiate Traincar 2 NPCs & Objects
-            npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);              
+            npc1 = Instantiate(programmer,new Vector2(-7f,-0.95f),transform.rotation,this.transform);  
         }
         else if (traincar == "Car3") {
             carNumber.text = "4";
@@ -57,6 +58,7 @@ public class EnterTraincar : MonoBehaviour
     {
         player = GameObject.Find("Player");
         carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
+        npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);
     }
 
     void Update()
