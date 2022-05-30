@@ -6,8 +6,8 @@ public class PlayerExamine : MonoBehaviour
 {
     public bool examine;
     EnterTraincar traincar;
-    Talk dialog;
-    GameObject playerDialog;
+    Talk talk;
+    GameObject playerDialog, dialog;
     bool onTrigger;
     Collider2D col;
     public bool examining;
@@ -27,7 +27,8 @@ public class PlayerExamine : MonoBehaviour
     {
         examine = false;
         traincar = GameObject.Find("Train").GetComponent<EnterTraincar>();
-        dialog = GameObject.Find("DialogueBox").GetComponent<Talk>();
+        talk = GameObject.Find("GameManager").GetComponent<Talk>();
+        dialog = GameObject.Find("DialogueBox");
         playerDialog = GameObject.Find("PlayerDialogueBox");
         screenFade = false;
     }
@@ -42,7 +43,7 @@ public class PlayerExamine : MonoBehaviour
                 examining = true;
                 dialog.gameObject.SetActive(true);
                 playerDialog.SetActive(true);
-                dialog.StartDialogue(col.name);
+                talk.StartDialogue(col.name);
             }
             else if (col.tag == "Interactable") {
                 // Examine Object

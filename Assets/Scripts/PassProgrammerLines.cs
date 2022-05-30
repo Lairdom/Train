@@ -55,8 +55,8 @@ public class PassProgrammerLines : MonoBehaviour
         yourLines2[9] = "Look.. It could be drugs.. Or gas..";
         lines2[10] = "Are you for fucking real? Drugs? Gas? Dude.. It's a glitch, and we've been put away. We're not getting out, we're all gonna spend the fucking eternity here. This is it, till end of fucking time.";
         yourLines2[10] = "What the fuck is wrong with you..?";
-        lines2[1] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
-        yourLines2[1] = "";
+        lines2[11] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
+        yourLines2[11] = "";
         lines2[12] = "You can't tell your name, much less your address or year of birth, can you tell what year it is? Can you tell what day of the week? And you're saying what's wrong with me? Fucking gas?";
         yourLines2[12] = "What the fuck..";
         lines2[13] = "I know... We're done. This is it. We've been swept away, and if we're lucky, they'll delete the cache sooner rather than later.";
