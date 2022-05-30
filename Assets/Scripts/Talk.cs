@@ -18,7 +18,8 @@ public class Talk : MonoBehaviour
     public static Talk instance;
     string nimi;
     EnterTraincar train;
-
+    public bool startEnd;
+    public GameObject target;
     
     void Awake(){
         instance = this;
@@ -30,16 +31,30 @@ public class Talk : MonoBehaviour
         parentAdvance = false; addictAdvance = false; hustlerAdvance = false;
         priestAdvance = false; programmerAdvance = false;
         train = GameObject.Find("Train").GetComponent<EnterTraincar>();
-        end = false;
+        end = false; startEnd = false;
     }
 
     void Update()
     {
-
+        
     }
 
     public void NextLine()
     {
+        if (startEnd == true) {
+            if (ind == 0 || ind == 1 || ind == 3 || ind == 5 || ind == 8 || ind == 10 || ind == 12 || ind == 14 || ind == 16 || ind == 18) 
+                target = GameObject.Find("PassengerHustler(Clone)");
+            else if (ind == 2 || ind == 4 || ind == 6) 
+                target = GameObject.Find("PassengerPriest(Clone)");
+            else if (ind == 7 || ind == 9 || ind == 11 || ind == 13) 
+                target = GameObject.Find("PassengerProg...(Clone)");
+            else if (ind == 15) 
+                target = GameObject.Find("PassengerParent(Clone)");
+            else if (ind == 17) 
+                target = GameObject.Find("PassengerAddict(Clone)");
+            else
+                target = GameObject.Find("Player");
+        }
         if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
                 StopCoroutine("TypeLine");
                 textComponent.text = lines[ind];
@@ -68,6 +83,7 @@ public class Talk : MonoBehaviour
             }
             GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
             started = false;
+            startEnd = false;
         }
     }
 
@@ -202,6 +218,22 @@ public class Talk : MonoBehaviour
             // Start of dialogue
             if (started == false) {
                 started = true;
+                ind = 0;
+                pInd = 0;
+                textComponent.text = "";
+                textComponent2.text = "";
+                StartCoroutine("TypeLine");
+            }
+            else if (started == true) {
+                NextLine();
+            }
+        }
+        else if (name == null && startEnd == true) {
+            if (started == false) {
+                target = GameObject.Find("PassengerHustler(Clone)");
+                started = true;
+                lines = GetComponent<EndSceneLines>().lines;
+                yourLines = GetComponent<EndSceneLines>().yourLines;
                 ind = 0;
                 pInd = 0;
                 textComponent.text = "";

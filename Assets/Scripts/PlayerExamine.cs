@@ -56,6 +56,10 @@ public class PlayerExamine : MonoBehaviour
             }
         }
         else if (examine == true && onTrigger == false) {
+            if (GameObject.Find("GameManager").GetComponent<Talk>().startEnd == true) {
+                examining = true;
+                talk.StartDialogue(null);
+            }
             examine = false;
         }
 

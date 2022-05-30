@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    GameObject player;
+    GameObject player, target;
+    Talk talk;
 
     void Start()
     {
         player = GameObject.Find("Player");
+        talk = GameObject.Find(("GameManager")).GetComponent<Talk>();
+        target = player;
     }
 
     void Update()
     {
-        if (player != null) {
+        target = talk.target;
+        if (player != null && talk.startEnd == false) {
             transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
+        }
+        else if (player != null && talk.startEnd == true) {
+            transform.position = new Vector3(target.transform.position.x,transform.position.y,-10);
         }
     }
 }

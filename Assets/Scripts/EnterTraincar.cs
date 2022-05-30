@@ -11,6 +11,7 @@ public class EnterTraincar : MonoBehaviour
     GameObject player, npc1, npc2, npc3, npc4, npc5;
     [SerializeField] Sprite cargo, train;
     TextMeshPro carNumber;
+    GameObject dialog, playerDialog;
 
     void MovePlayer() {
         if (player.transform.position.x > 0) {
@@ -25,7 +26,7 @@ public class EnterTraincar : MonoBehaviour
 
     public IEnumerator EndScene() {
         Debug.Log("Started end scene");
-        Fade.RequestFade = true;
+        player.GetComponentInChildren<PlayerExamine>().examining = true;
         yield return new WaitForSeconds(2);
         Destroy(npc1); Destroy(npc2); Destroy(npc3);
         player.transform.position = new Vector2(0.45f,player.transform.position.y);
@@ -34,9 +35,14 @@ public class EnterTraincar : MonoBehaviour
         npc2.GetComponent<SpriteRenderer>().flipX = true;
         npc3 = Instantiate(priest,new Vector2(-4f,-0.95f),transform.rotation,this.transform);
         npc4 = Instantiate(parent,new Vector2(-2.25f,-0.95f),transform.rotation,this.transform);
-        npc5 = Instantiate(programmer,new Vector2(-8f,-0.95f),transform.rotation,this.transform);
+        npc5 = Instantiate(programmer,new Vector2(8f,-0.95f),transform.rotation,this.transform);
         npc5.GetComponent<SpriteRenderer>().flipX = true;
+        GameObject.Find("GameManager").GetComponent<Talk>().startEnd = true;
         Fade.RequestFade = true;
+        yield return new WaitForSeconds(1);
+        dialog.SetActive(true);
+        playerDialog.SetActive(true);
+        GameObject.Find("GameManager").GetComponent<Talk>().StartDialogue(null);
     }
 
     IEnumerator ChangeTraincar() {
@@ -89,7 +95,8 @@ public class EnterTraincar : MonoBehaviour
         player = GameObject.Find("Player");
         carNumber = GameObject.Find("TrainCarNumber").GetComponent<TextMeshPro>();
         npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);
-        
+        dialog = GameObject.Find("DialogueBox");
+        playerDialog = GameObject.Find("PlayerDialogueBox");
     }
 
     void Update()
