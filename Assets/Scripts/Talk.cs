@@ -16,6 +16,7 @@ public class Talk : MonoBehaviour
     public bool parentAdvance, addictAdvance, hustlerAdvance, priestAdvance, programmerAdvance;
     public bool started;
     public static Talk instance;
+    string nimi;
 
 
     
@@ -51,6 +52,15 @@ public class Talk : MonoBehaviour
             StartCoroutine("TypeLine");
         }
         else if (ind >= lines.Length -1) {
+            if (nimi == "PassengerProg...(Clone)") {
+                parentAdvance = true;
+            }
+            else if (nimi == "PassengerParent(Clone)" && parentAdvance == true) {
+                hustlerAdvance = true;
+            }
+            else if (nimi == "PassengerHustler(Clone)" && parentAdvance == true && hustlerAdvance == true) {
+                programmerAdvance = true;
+            }
             GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
             started = false;
         }
@@ -60,6 +70,7 @@ public class Talk : MonoBehaviour
     {
         // If talking to Parent
         if (name == "PassengerParent(Clone)") {
+            nimi = name;
 
             // Check if we have advanced parent dialogue
             if (parentAdvance == false) {
@@ -87,7 +98,8 @@ public class Talk : MonoBehaviour
 
         // If talking to Hustler
         else if (name == "PassengerHustler(Clone)") {
-            
+            nimi = name;
+
             // Check if we have advanced hustler dialogue
             if (hustlerAdvance == false) {
                 lines = GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().lines;
@@ -114,7 +126,8 @@ public class Talk : MonoBehaviour
 
         // If talking to Addict
         else if (name == "PassengerAddict(Clone)") {
-            
+            nimi = name;
+
             // Check if we have advanced addict dialogue
             if (addictAdvance == false) {
                 lines = GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().lines;
@@ -141,7 +154,8 @@ public class Talk : MonoBehaviour
 
         // If talking to Priest
         else if (name == "PassengerPriest(Clone)") {
-            
+            nimi = name;
+
             // Check if we have advanced priest dialogue
             if (priestAdvance == false) {
                 lines = GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().lines;
@@ -167,16 +181,17 @@ public class Talk : MonoBehaviour
         }
 
         // If talking to Programmer
-        else if (name == "PassengerProgrammer(Clone)") {
-            
+        else if (name == "PassengerProg...(Clone)") {
+            nimi = name;
+
             // Check if we have advanced programmer dialogue
             if (priestAdvance == false) {
-                lines = GameObject.Find("PassengerProgrammer(Clone)").GetComponent<PassProgrammerLines>().lines;
-                yourLines = GameObject.Find("PassengerProgrammer(Clone)").GetComponent<PassProgrammerLines>().yourLines;
+                lines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().lines;
+                yourLines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().yourLines;
             }
             else {
-                lines = GameObject.Find("PassengerProgrammer(Clone)").GetComponent<PassProgrammerLines>().lines2;
-                yourLines = GameObject.Find("PassengerProgrammer(Clone)").GetComponent<PassProgrammerLines>().yourLines2;
+                lines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().lines2;
+                yourLines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().yourLines2;
             }
 
             // Start of dialogue

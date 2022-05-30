@@ -24,7 +24,6 @@ public class EnterTraincar : MonoBehaviour
 
     }
     IEnumerator ChangeTraincar() {
-        //player.GetComponentInChildren<PlayerExamine>().screenFade = true;
         Fade.RequestFade = true;
 
         //Play door soundeffect
@@ -44,6 +43,7 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car3") {
             carNumber.text = "4";
             // Instantiate Traincar 3 NPCs & Objects
+            npc1 = Instantiate(priest,new Vector2(3f,-0.95f),transform.rotation,this.transform);
         }
         else if (traincar == "Car4") {
             carNumber.text = "";
@@ -52,7 +52,6 @@ public class EnterTraincar : MonoBehaviour
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,this.transform);
         }
         Fade.RequestFade = true;
-        //player.GetComponentInChildren<PlayerExamine>().screenFade = false;
     }
     void Start()
     {

@@ -32,6 +32,37 @@ public class PassProgrammerLines : MonoBehaviour
         yourLines[8] = "Why don't you ask yourself?";
         lines[9] = "I uh... I'd feel awkward doing that.";
         yourLines[9] = "Okay... Fine.";
+
+        lines2[0] = "The programmer is still weirdly excited.";       // Narrative description
+        yourLines2[0] = "I talked to her.";
+        lines2[1] = "She remember me?";
+        yourLines2[1] = "Uh... What?";
+        lines2[2] = "Did she remember me?";
+        yourLines2[2] = "She didn't... mention.. You didn't ask me to ask either?";
+        lines2[3] = "Okay, fine.";
+        yourLines2[3] = "I can go and ask if-";
+        lines2[4] = "No, forget about it.\nThe phone?";
+        yourLines2[4] = "Yeah, it had some pictures... Wait, you remember her?";
+        lines2[5] = "No. Any pictures of me?";
+        yourLines2[5] = "Someone else.";
+        lines2[6] = "Okay. Yeah, that's it. We're all somehow tied to each other.";
+        yourLines2[6] = "Look, I don't remember you... Don't remember anyone-";
+        lines2[7] = "What's your name?";
+        yourLines2[7] = "Uh.. What?";
+        lines2[8] = "What's your name?";
+        yourLines2[8] = "...";
+        lines2[9] = "You're not sure, right? You don't know what your fucking name is, right? How the fuck can you forget your own name?";
+        yourLines2[9] = "Look.. It could be drugs.. Or gas..";
+        lines2[10] = "Are you for fucking real? Drugs? Gas? Dude.. It's a glitch, and we've been put away. We're not getting out, we're all gonna spend the fucking eternity here. This is it, till end of fucking time.";
+        yourLines2[10] = "What the fuck is wrong with you..?";
+        lines2[1] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
+        yourLines2[1] = "";
+        lines2[12] = "You can't tell your name, much less your address or year of birth, can you tell what year it is? Can you tell what day of the week? And you're saying what's wrong with me? Fucking gas?";
+        yourLines2[12] = "What the fuck..";
+        lines2[13] = "I know... We're done. This is it. We've been swept away, and if we're lucky, they'll delete the cache sooner rather than later.";
+        yourLines2[13] = "You're fucking insane.";
+        lines2[14] = "I'm the only sane one here.";
+        yourLines2[14] = "What the fuck...";
     }
 
     // Update is called once per frame
