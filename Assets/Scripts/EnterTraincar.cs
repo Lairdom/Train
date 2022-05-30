@@ -92,7 +92,19 @@ public class EnterTraincar : MonoBehaviour
     void Update()
     {
         player.GetComponentInChildren<PlayerExamine>().screenFade = Fade.IsFading;
-        if (traincar == "Car1") {
+        if (traincar == "Car0") {
+            if (goNext == true) {
+                Debug.Log("Entering Traincar 1");
+                traincar = "Car1";
+                StartCoroutine(ChangeTraincar());
+                goNext = false;
+            }
+            else if (goPrev == true) {
+                Debug.Log("Locked");
+                goPrev = false;
+            }
+        }
+        else if (traincar == "Car1") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 2");
                 traincar = "Car2";
