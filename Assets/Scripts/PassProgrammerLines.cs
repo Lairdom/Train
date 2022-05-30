@@ -62,7 +62,7 @@ public class PassProgrammerLines : MonoBehaviour
         lines2[12] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
         yourLines2[12] = "";
         lines2[13] = "You can't tell your name, much less your address or year of birth, can you tell what year it is?";
-        yourLines2[13] = "What the fuck..";
+        yourLines2[13] = "";
         lines2[14] = "Can you tell what day of the week? And you're saying what's wrong with me? Fucking gas?";
         yourLines2[14] = "What the fuck..";
         lines2[15] = "I know... We're done. This is it. We've been swept away, and if we're lucky, they'll delete the cache sooner rather than later.";

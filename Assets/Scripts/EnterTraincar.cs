@@ -9,7 +9,7 @@ public class EnterTraincar : MonoBehaviour
     public bool goNext = false, goPrev = false;
     [SerializeField] GameObject addict, hustler, parent, programmer, priest;
     GameObject player, npc1, npc2, npc3, npc4, npc5;
-
+    [SerializeField] Sprite cargo, train;
     TextMeshPro carNumber;
 
     void MovePlayer() {
@@ -26,7 +26,7 @@ public class EnterTraincar : MonoBehaviour
     public IEnumerator EndScene() {
         Debug.Log("Started end scene");
         Fade.RequestFade = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         Destroy(npc1); Destroy(npc2); Destroy(npc3);
         player.transform.position = new Vector2(0.45f,player.transform.position.y);
         npc1 = Instantiate(addict,new Vector2(-9f,-0.80f),transform.rotation,this.transform);
@@ -51,8 +51,15 @@ public class EnterTraincar : MonoBehaviour
         yield return new WaitForSeconds(1);
         MovePlayer();                                       // Move Player to correct side of the train
         Destroy(npc1); Destroy(npc2); Destroy(npc3);        // Destroy all NPCs
-        if (traincar == "Car1") {
+        if (traincar == "Car0") {
+            carNumber.text = "1";
+            GetComponent<SpriteRenderer>().sprite = cargo;
+            // Instantiate cargo Objects
+
+        }
+        else if (traincar == "Car1") {
             carNumber.text = "2";
+            GetComponent<SpriteRenderer>().sprite = train;
             // Instantiate Traincar 1 NPCs & Objects
             npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);              
         }
@@ -93,7 +100,9 @@ public class EnterTraincar : MonoBehaviour
                 goNext = false;
             }
             else if (goPrev == true) {
-                Debug.Log("Locked");
+                Debug.Log("Entering Cargo");
+                traincar = "Car0";
+                StartCoroutine(ChangeTraincar());
                 goPrev = false;
             }
         }

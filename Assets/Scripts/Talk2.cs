@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class Talk : MonoBehaviour
+public class Talk2 : MonoBehaviour
 {
     int ind;
 
