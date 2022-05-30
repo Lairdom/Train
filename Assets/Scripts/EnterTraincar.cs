@@ -43,6 +43,9 @@ public class EnterTraincar : MonoBehaviour
         Fade.RequestFade = true;
         // Check if we have reached end scene
         if (GameObject.Find("GameManager").GetComponent<Talk>().end == true) {
+            traincar = "Car2";
+            carNumber.text = "3";
+            GetComponent<SpriteRenderer>().sprite = train;
             StartCoroutine(EndScene());
             yield break;
         }
