@@ -1153,7 +1153,7 @@ MonoBehaviour:
   parent: {fileID: 3301060526619710925, guid: 65b33e9aebc6c5e41948cefb95034b60, type: 3}
   programmer: {fileID: 7505868858950678172, guid: 010d757fe7b3310499f2d62fec2af6d9, type: 3}
   priest: {fileID: 6051898626980408605, guid: d1d3bc43d82faa74ca05b816425d2a80, type: 3}
-  cargo: {fileID: 21300000, guid: 012ffbdc15e23d6499bb119539fdca15, type: 3}
+  cargo: {fileID: 21300000, guid: a8f35d7675ee4c5449674451bb61ae62, type: 3}
   train: {fileID: -5587011221167700457, guid: 392216ce85048ca4a960ee741640f8cc, type: 3}
 --- !u!1 &613676914
 GameObject:
