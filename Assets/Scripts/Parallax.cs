@@ -21,7 +21,7 @@ public class Parallax : MonoBehaviour
     void Update()
     {
         playerInput = (Input.GetAxisRaw("Horizontal"));
-        if(Fade.IsFading == false){
+        if(Fade.IsFading == false && GameObject.Find("DialogueBox") == null){
             if (playerInput < 0f) {
                 playerInput = -3;
             } else if (playerInput > 0f) {
@@ -30,6 +30,7 @@ public class Parallax : MonoBehaviour
         } else {
             playerInput = 0f;
         }
+
         Distance = 
             Vector2.Distance(new Vector2(transform.position.x, 0f), 
             new Vector2(TargetObject.transform.position.x, 0f));
