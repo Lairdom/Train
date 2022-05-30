@@ -147,8 +147,14 @@ MonoBehaviour:
   - 
   - 
   - 
-  lines2:
+  - 
+  lines2: []
+  yourLines:
   - 
   - 
   - 
   - 
+  - 
+  yourLines2: []
+  advance: 0
+  exhausted: 0
