@@ -20,18 +20,20 @@ public class PassProgrammerLines : MonoBehaviour
         yourLines[2] = "...Well-";
         lines[3] = "Dude, like, you know simulation theory?";
         yourLines[3] = "Wait, I-";
-        lines[4] = "So, if it's possible for us to create a convincing simulation of reality, then it's infinitely possible that someone already did it before us, and we're much more likely to be in a simulation of a simulation, rather than the original universe.";
-        yourLines[4] = "What the fuck?";
-        lines[5] = "Alright, so essentially. We're stuck in a debugging area. How we got here, I'm not sure. But it's big. Look, did you check your phone?";
-        yourLines[5] = "Don't have it on me...";
-        lines[6] = "Okay, well; it's not running out of power. It's stuck. But we got all the pictures and files from before, look.";
-        yourLines[6] = "Okay...?";
-        lines[7] = "It's taken us out the system, and put us to isolation. There's some connection between us, you know?";
-        yourLines[7] = "No...?";
-        lines[8] = "I got pictures of somebody here. I saw her on the train. I need you to check up with her, see what she got on her phone.";
-        yourLines[8] = "Why don't you ask yourself?";
-        lines[9] = "I uh... I'd feel awkward doing that.";
-        yourLines[9] = "Okay... Fine.";
+        lines[4] = "So, if it's possible for us to create a convincing simulation of reality, ";
+        yourLines[4] = "";
+        lines[5] = "then it's infinitely possible that someone already did it before us, and we're much more likely to be in a simulation of a simulation, rather than the original universe.";
+        yourLines[5] = "What the fuck?";
+        lines[6] = "Alright, so essentially. We're stuck in a debugging area. How we got here, I'm not sure. But it's big. Look, did you check your phone?";
+        yourLines[6] = "Don't have it on me...";
+        lines[7] = "Okay, well; it's not running out of power. It's stuck. But we got all the pictures and files from before, look.";
+        yourLines[7] = "Okay...?";
+        lines[8] = "It's taken us out the system, and put us to isolation. There's some connection between us, you know?";
+        yourLines[8] = "No...?";
+        lines[9] = "I got pictures of somebody here. I saw her on the train. I need you to check up with her, see what she got on her phone.";
+        yourLines[9] = "Why don't you ask yourself?";
+        lines[10] = "I uh... I'd feel awkward doing that.";
+        yourLines[10] = "Okay... Fine.";
 
         lines2[0] = "The programmer is still weirdly excited.";       // Narrative description
         yourLines2[0] = "I talked to her.";
@@ -53,16 +55,20 @@ public class PassProgrammerLines : MonoBehaviour
         yourLines2[8] = "...";
         lines2[9] = "You're not sure, right? You don't know what your fucking name is, right? How the fuck can you forget your own name?";
         yourLines2[9] = "Look.. It could be drugs.. Or gas..";
-        lines2[10] = "Are you for fucking real? Drugs? Gas? Dude.. It's a glitch, and we've been put away. We're not getting out, we're all gonna spend the fucking eternity here. This is it, till end of fucking time.";
-        yourLines2[10] = "What the fuck is wrong with you..?";
-        lines2[11] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
-        yourLines2[11] = "";
-        lines2[12] = "You can't tell your name, much less your address or year of birth, can you tell what year it is? Can you tell what day of the week? And you're saying what's wrong with me? Fucking gas?";
-        yourLines2[12] = "What the fuck..";
-        lines2[13] = "I know... We're done. This is it. We've been swept away, and if we're lucky, they'll delete the cache sooner rather than later.";
-        yourLines2[13] = "You're fucking insane.";
-        lines2[14] = "I'm the only sane one here.";
-        yourLines2[14] = "What the fuck...";
+        lines2[10] = "Are you for fucking real? Drugs? Gas? Dude.. It's a glitch, and we've been put away. ";
+        yourLines2[10] = "";
+        lines2[11] = "We're not getting out, we're all gonna spend the fucking eternity here. This is it, till end of fucking time.";
+        yourLines2[11] = "What the fuck is wrong with you..?";
+        lines2[12] = "With me? What the fuck is wrong with me? I'm surrounded by fucking idiots, by fucking imbeciles. What the fuck is wrong with you?";
+        yourLines2[12] = "";
+        lines2[13] = "You can't tell your name, much less your address or year of birth, can you tell what year it is?";
+        yourLines2[13] = "What the fuck..";
+        lines2[14] = "Can you tell what day of the week? And you're saying what's wrong with me? Fucking gas?";
+        yourLines2[14] = "What the fuck..";
+        lines2[15] = "I know... We're done. This is it. We've been swept away, and if we're lucky, they'll delete the cache sooner rather than later.";
+        yourLines2[15] = "You're fucking insane.";
+        lines2[16] = "I'm the only sane one here.";
+        yourLines2[16] = "What the fuck...";
     }
 
     // Update is called once per frame

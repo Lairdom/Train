@@ -25,8 +25,8 @@ public class EnterTraincar : MonoBehaviour
 
     public IEnumerator EndScene() {
         Debug.Log("Started end scene");
-        
-        yield return new WaitForSeconds(2);
+        Fade.RequestFade = true;
+        yield return new WaitForSeconds(1);
         Destroy(npc1); Destroy(npc2); Destroy(npc3);
         player.transform.position = new Vector2(0.45f,player.transform.position.y);
         npc1 = Instantiate(addict,new Vector2(-9f,-0.80f),transform.rotation,this.transform);
