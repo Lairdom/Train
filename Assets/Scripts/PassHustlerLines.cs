@@ -12,7 +12,7 @@ public class PassHustlerLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "The man is banging on the cart's front door and screaming.";            // Narrative description
+        lines[0] = "<i>The man is banging on the cart's front door and screaming. </i>";            // Narrative description
         yourLines[0] = "";
         lines[1] = "GET THE FUCK AWAY FROM ME!";
         yourLines[1] = "Jesus! Sorry!";
@@ -29,7 +29,7 @@ public class PassHustlerLines : MonoBehaviour
         yourLines2[4] = "Okay... So... What do we do?";
         lines2[5] = "What?";
         yourLines2[5] = "Well... fucking banging the door isn't doing anything, the fuck we do?";
-        lines2[6] = "The man is clearly on the edge of snapping.";                          // Narrative description
+        lines2[6] = "<i>The man is clearly on the edge of snapping. </i>";                          // Narrative description
         yourLines2[6] = "I just wanna live and get what the fuck is going on here...";
         lines2[7] = "Okay. Alright. I need to think, gimme space.";
         yourLines2[7] = "Okay, alright.";

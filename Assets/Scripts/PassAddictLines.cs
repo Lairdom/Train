@@ -12,7 +12,7 @@ public class PassAddictLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "The man is smoking. Based on the smell it ain't cigarettes.";           // Narrative description
+        lines[0] = "<i> The man is smoking. Based on the smell it ain't cigarettes. </i>";           // Narrative description
         yourLines[0] = "Excuse me.";
         lines[1] = "Hey, whatchu need?";
         yourLines[1] = "Do you know what's going on?";

@@ -12,7 +12,7 @@ public class PassProgrammerLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "The man is staring out the window excitedly.";       // Narrative description
+        lines[0] = "<i>The man is staring out the window excitedly.</i>";       // Narrative description
         yourLines[0] = "";
         lines[1] = "Hey!";
         yourLines[1] = "Hey, sorry, do you-";
@@ -35,7 +35,7 @@ public class PassProgrammerLines : MonoBehaviour
         lines[10] = "I uh... I'd feel awkward doing that.";
         yourLines[10] = "Okay... Fine.";
 
-        lines2[0] = "The programmer is still weirdly excited.";       // Narrative description
+        lines2[0] = "<i>The programmer is still weirdly excited.</i>";       // Narrative description
         yourLines2[0] = "I talked to her.";
         lines2[1] = "She remember me?";
         yourLines2[1] = "Uh... What?";
