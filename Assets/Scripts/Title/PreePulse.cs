@@ -8,28 +8,36 @@ public class PreePulse : MonoBehaviour
 
     float timer;
     bool BtnPressed = false;
+    float StartTime;
 
     [SerializeField] Color Col1, Col2;
+    void Awake(){
+        StartTime = 0;
+        Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,0f);
+    }
 
     void Update ()
     {
+        StartTime += Time.deltaTime;
         if(BtnPressed == true){
             BtnPulse(timer);
         }
-        timer += Time.deltaTime; 
-        if (timer <= 0.5 || BtnPressed == true)
-        { 
-            Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,1f);
-        } 
-        else if (timer <= 1)
-        { 
-            Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,0f);
-        } else {
-            timer = 0; 
+        if(StartTime > 3f){
+            timer += Time.deltaTime; 
+            if (timer <= 0.5 || BtnPressed == true)
+            { 
+                Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,1f);
+            } 
+            else if (timer <= 1)
+            { 
+                Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,0f);
+            } else {
+                timer = 0; 
+            }
         }
 
-        if (Input.anyKey && BtnPressed == false){
-            Invoke("ScreenFade", 0.4f);
+        if (Input.anyKey && BtnPressed == false && StartTime > 3f){
+            Invoke("ScreenFade", 2f);
             Invoke("SwitchScene", 2f);
             timer = 0f;
             BtnPressed = true;
