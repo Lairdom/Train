@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Talk : MonoBehaviour
@@ -310,5 +311,11 @@ public class Talk : MonoBehaviour
         doorsOpen = true;
         Fade.RequestFade = true;
         // To Be Continued
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    void StartingScene(){
+
     }
 }
