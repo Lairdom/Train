@@ -12,7 +12,7 @@ public class PassPriestLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "The Priest is knelt sobbing in prayer near the back of the cart.";       // Narrative description
+        lines[0] = "<i> The Priest is waving his hand to sky near the back of the cart. </i>";       // Narrative description
         yourLines[0] = "Excuse me.";
         lines[1] = "Please, leave me be...";
         yourLines[1] = "I'm sorry, I was just-";
