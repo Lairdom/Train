@@ -15,6 +15,7 @@ public class Talk : MonoBehaviour
     [SerializeField] string[] yourLines = {};
     [SerializeField] TextMeshProUGUI textComponent, textComponent2;
     public bool parentAdvance, addictAdvance, hustlerAdvance, priestAdvance, programmerAdvance;
+    public bool parentExhausted, addictExhausted, hustlerExhausted, priestExhausted, programmerExhausted;
     public bool started, end;
     public static Talk instance;
     string nimi;
@@ -37,6 +38,8 @@ public class Talk : MonoBehaviour
         end = false; startEnd = false;
         target = GameObject.Find("Player");
         doorsOpen = false;
+        parentExhausted = false; addictExhausted = false; hustlerExhausted = false;
+        priestExhausted = false; programmerExhausted = false;
     }
 
     void Update()
@@ -65,35 +68,35 @@ public class Talk : MonoBehaviour
         }
         else if (ind >= lines.Length -1) {
             if (nimi == "PassengerAddict(Clone)" && addictAdvance == false) {
-                GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().exhausted = true;
+                addictExhausted = true;
             }
             else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == false) {
-                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = true;
+                programmerExhausted = true;
                 parentAdvance = true;
-                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = false;
+                parentExhausted = false;
             }
             else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == true) {
-                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = true;
+                programmerExhausted = true;
                 end = true;
             }
             else if (nimi == "PassengerParent(Clone)" && parentAdvance == false) {
-                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = true;
+                parentExhausted = true;
             }
             else if (nimi == "PassengerParent(Clone)" && parentAdvance == true) {
-                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = true;
+                parentExhausted = true;
                 hustlerAdvance = true;
-                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+                hustlerExhausted = false;
             }
             else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == false) {
-                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+                hustlerExhausted = true;
             }
             else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == true) {
-                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+                hustlerExhausted = true;
                 programmerAdvance = true;
-                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = false;
+                programmerExhausted = false;
             }
             else if (nimi == "PassengerPriest(Clone)" && priestAdvance == false) {
-                GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().exhausted = true;
+                priestExhausted = true;
             } else {
                 Debug.Log($"{ind >= lines.Length -1} Here {ind} - {lines.Length -1}");
                 SignEnd();
@@ -143,7 +146,7 @@ public class Talk : MonoBehaviour
             }
 
             // Check if we have exhausted parent lines
-            if (GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted == true) {
+            if (parentExhausted == true) {
                 if (parentAdvance == true) {
                     ind = 7;
                     pInd = 7;
@@ -187,7 +190,7 @@ public class Talk : MonoBehaviour
             }
 
             // Check if we have exhausted hustler lines
-            if (GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted == true) {
+            if (hustlerExhausted == true) {
                 if (hustlerAdvance == true) {
                     ind = 8;
                     pInd = 8;
@@ -228,7 +231,7 @@ public class Talk : MonoBehaviour
             }
 
             // Check if we have exhausted addict lines
-            if (GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().exhausted == true) {
+            if (addictExhausted == true) {
                 ind = 7;
                 pInd = 7;
                 started = true;
@@ -263,7 +266,7 @@ public class Talk : MonoBehaviour
             }
 
             // Check if we have exhausted priest lines
-            if (GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().exhausted == true) {
+            if (priestExhausted == true) {
                 ind = 7;
                 pInd = 7;
                 started = true;
@@ -298,7 +301,7 @@ public class Talk : MonoBehaviour
             }
 
             // Check if we have exhausted programmer lines
-            if (GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted == true) {
+            if (programmerExhausted == true) {
                 if (programmerAdvance == true) {
                     ind = 16;
                     pInd = 16;
