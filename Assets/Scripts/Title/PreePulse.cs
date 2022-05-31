@@ -4,14 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class PreePulse : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI Teksti;
+    [SerializeField] TextMeshProUGUI Teksti, Logo, Er;
 
     float timer;
     bool BtnPressed = false;
     float StartTime;
+    float Pressed = 0f;
 
     [SerializeField] Color Col1, Col2;
     void Awake(){
+        Pressed = 0f;
         StartTime = 0;
         Teksti.color = new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,0f);
     }
@@ -40,7 +42,22 @@ public class PreePulse : MonoBehaviour
             Invoke("ScreenFade", 2f);
             Invoke("SwitchScene", 2f);
             timer = 0f;
+            Pressed = 0f;
             BtnPressed = true;
+        }
+        if (BtnPressed == true){
+            Pressed += Time.deltaTime;
+            Teksti.color = Color.Lerp(
+                new Color(Teksti.color.r,Teksti.color.g,Teksti.color.b,1f),
+                new Color(0f,0f,0f,1f), Pressed/1.5f);
+
+            Er.color = Color.Lerp(
+                new Color(Er.color.r,Er.color.g,Er.color.b,1f),
+                new Color(0f,0f,0f,1f), Pressed/1.5f);
+
+            Logo.color = Color.Lerp(
+                new Color(Logo.color.r,Logo.color.g,Logo.color.b,1f),
+                new Color(0f,0f,0f,1f), Pressed/1.5f);
         }
     }
 
