@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: -5717180937931691889
     second: Train_5
+  - first:
+      213: -5139201148843731328
+    second: Train_6
+  - first:
+      213: -3461981212274000805
+    second: Train_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -229,6 +235,48 @@ TextureImporter:
       name: Train_5
       rect:
         serializedVersion: 2
+        x: 77
+        y: 21
+        width: 41
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8862f55a3e78a0b0800000000000000
+      internalID: -5717180937931691889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_6
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 21
+        width: 37
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086d3e5a8c3eda8b0800000000000000
+      internalID: -5139201148843731328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Train_7
+      rect:
+        serializedVersion: 2
         x: 566
         y: 4
         width: 5
@@ -240,8 +288,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8862f55a3e78a0b0800000000000000
-      internalID: -5717180937931691889
+      spriteID: b5cf4570e6294ffc0800000000000000
+      internalID: -3461981212274000805
       vertices: []
       indices: 
       edges: []
