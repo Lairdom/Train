@@ -233,6 +233,24 @@ public class Talk : MonoBehaviour
                 NextLine();
             }
         }
+        else if (name == "Sign(Clone)") {
+            nimi = name;
+            lines = GameObject.Find("Sign(Clone)").GetComponent<SignLines>().lines;
+            yourLines = GameObject.Find("Sign(Clone)").GetComponent<SignLines>().yourLines;
+            if (started == false) {
+                started = true;
+                ind = 0;
+                pInd = 0;
+                textComponent.text = "";
+                textComponent2.text = "";
+                StartCoroutine("TypeLine");
+            }
+            else if (started == true) {
+                NextLine();
+            }
+
+        }
+
         else if (name == null && startEnd == true) {
             if (started == false) {
                 target = GameObject.Find("PassengerHustler(Clone)");
