@@ -9,6 +9,11 @@ public class PassHustlerLines : MonoBehaviour
     public string[] lines2 = {};
     public string[] yourLines2 = {};
     public bool advance, exhausted;
+
+    public void KickSound() {
+        GetComponent<AudioSource>().Play();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

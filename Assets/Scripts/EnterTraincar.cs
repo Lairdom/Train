@@ -89,8 +89,6 @@ public class EnterTraincar : MonoBehaviour
         }
         else if (traincar == "Car4") {
             carNumber.text = "";
-            source.loop = true;
-            source.Play();
             // Instantiate Traincar 4 NPCs & Objects
             npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,this.transform);
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,this.transform);
