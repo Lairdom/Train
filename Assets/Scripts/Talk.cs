@@ -332,7 +332,7 @@ public class Talk : MonoBehaviour
             yourLines = GameObject.Find("Sign(Clone)").GetComponent<SignLines>().yourLines;
             if (started == false) {
                 started = true;
-                ind = UnityEngine.Random.Range(0,3);
+                ind = UnityEngine.Random.Range(0,4);
                 pInd = 0;
                 textComponent.text = "";
                 textComponent2.text = "";
