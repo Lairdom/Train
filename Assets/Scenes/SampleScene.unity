@@ -692,10 +692,16 @@ MonoBehaviour:
   hustlerAdvance: 0
   priestAdvance: 0
   programmerAdvance: 0
+  parentExhausted: 0
+  addictExhausted: 0
+  hustlerExhausted: 0
+  priestExhausted: 0
+  programmerExhausted: 0
   started: 0
   end: 0
   startEnd: 0
   target: {fileID: 0}
+  braking: {fileID: 8300000, guid: fec65789f41c109489b649d8fdf6016f, type: 3}
 --- !u!4 &475879512
 Transform:
   m_ObjectHideFlags: 0

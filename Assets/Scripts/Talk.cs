@@ -24,6 +24,8 @@ public class Talk : MonoBehaviour
     public GameObject target;
     bool doorsOpen;
     float timer;
+    AudioSource source;
+    [SerializeField] AudioClip braking;
     
     void Awake(){
         instance = this;
@@ -38,6 +40,7 @@ public class Talk : MonoBehaviour
         end = false; startEnd = false;
         target = GameObject.Find("Player");
         doorsOpen = false;
+        source = GameObject.Find("Doors").GetComponent<AudioSource>();
         parentExhausted = false; addictExhausted = false; hustlerExhausted = false;
         priestExhausted = false; programmerExhausted = false;
     }
@@ -406,6 +409,8 @@ public class Talk : MonoBehaviour
 
     IEnumerator Ending() {
         BGManager.instance.stopTrain();
+        source.volume = 0.5f;
+        source.PlayOneShot(braking);
         yield return new WaitForSeconds(1);
         GameObject.Find("Player").GetComponentInChildren<PlayerExamine>().examining = true;
         yield return new WaitForSeconds(4);

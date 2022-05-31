@@ -11,7 +11,6 @@ public class SignLines : MonoBehaviour
     void Start()
     {
         lines[0] = "<i>It just works.</i>"; // Joona
-        //yourLines[0] = "";
         lines[1] = "Do <b>not</b> press that button !"; // Hrax Keen
         lines[2] = "Help me... \n...\n...get out"; // markun contribuutio
         lines[3] = "Come find me from the restaurant car. I'll buy you a beer!"; //Ari
