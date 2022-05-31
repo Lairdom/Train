@@ -154,7 +154,9 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
   yourLines:
+  - 
   - 
   - 
   - 
@@ -202,5 +204,4 @@ MonoBehaviour:
   - 
   - 
   - 
-  advance: 0
   exhausted: 0

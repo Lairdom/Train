@@ -50,6 +50,7 @@ public class Talk : MonoBehaviour
 
     public void NextLine()
     {
+        Debug.Log($"{ind >= lines.Length -1} Here {ind} - {lines.Length -1}");
         if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
                 StopCoroutine("TypeLine");
                 textComponent.text = lines[ind];
@@ -64,17 +65,36 @@ public class Talk : MonoBehaviour
             StartCoroutine("TypeLine");
         }
         else if (ind >= lines.Length -1) {
-            if (nimi == "PassengerProg...(Clone)" && programmerAdvance == false) {
+            if (nimi == "PassengerAddict(Clone)" && addictAdvance == false) {
+                GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().exhausted = true;
+            }
+            else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == false) {
+                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = true;
                 parentAdvance = true;
-            }
-            else if (nimi == "PassengerParent(Clone)" && parentAdvance == true) {
-                hustlerAdvance = true;
-            }
-            else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == true) {
-                programmerAdvance = true;
+                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = false;
             }
             else if (nimi == "PassengerProg...(Clone)" && programmerAdvance == true) {
+                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = true;
                 end = true;
+            }
+            else if (nimi == "PassengerParent(Clone)" && parentAdvance == false) {
+                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = true;
+            }
+            else if (nimi == "PassengerParent(Clone)" && parentAdvance == true) {
+                GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted = true;
+                hustlerAdvance = true;
+                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+            }
+            else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == false) {
+                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+            }
+            else if (nimi == "PassengerHustler(Clone)" && hustlerAdvance == true) {
+                GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted = true;
+                programmerAdvance = true;
+                GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted = false;
+            }
+            else if (nimi == "PassengerPriest(Clone)" && priestAdvance == false) {
+                GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().exhausted = true;
             }
             if (startEnd == true) {
                 StartCoroutine(Ending());
@@ -116,6 +136,22 @@ public class Talk : MonoBehaviour
                 yourLines = GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().yourLines2;
             }
 
+            // Check if we have exhausted parent lines
+            if (GameObject.Find("PassengerParent(Clone)").GetComponent<PassParentLines>().exhausted == true) {
+                if (parentAdvance == true) {
+                    ind = 7;
+                    pInd = 7;
+                    textComponent.text = "";
+                    textComponent2.text = "";
+                }
+                else {
+                    ind = 4;
+                    pInd = 4;
+                    textComponent.text = "";
+                    textComponent2.text = "";
+                }
+                started = true;
+            }
             // Start of dialogue
             if (started == false) {
                 started = true;
@@ -142,6 +178,19 @@ public class Talk : MonoBehaviour
             else {
                 lines = GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().lines2;
                 yourLines = GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().yourLines2;
+            }
+
+            // Check if we have exhausted hustler lines
+            if (GameObject.Find("PassengerHustler(Clone)").GetComponent<PassHustlerLines>().exhausted == true) {
+                if (hustlerAdvance == true) {
+                    ind = 8;
+                    pInd = 8;
+                }
+                else {
+                    ind = 1;
+                    pInd = 1;
+                }
+                started = true;
             }
 
             // Start of dialogue
@@ -172,6 +221,13 @@ public class Talk : MonoBehaviour
                 yourLines = GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().yourLines2;
             }
 
+            // Check if we have exhausted addict lines
+            if (GameObject.Find("PassengerAddict(Clone)").GetComponent<PassAddictLines>().exhausted == true) {
+                ind = 7;
+                pInd = 7;
+                started = true;
+            }
+
             // Start of dialogue
             if (started == false) {
                 started = true;
@@ -198,6 +254,13 @@ public class Talk : MonoBehaviour
             else {
                 lines = GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().lines2;
                 yourLines = GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().yourLines2;
+            }
+
+            // Check if we have exhausted priest lines
+            if (GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().exhausted == true) {
+                ind = 7;
+                pInd = 7;
+                started = true;
             }
 
             // Start of dialogue
@@ -228,6 +291,19 @@ public class Talk : MonoBehaviour
                 yourLines = GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().yourLines2;
             }
 
+            // Check if we have exhausted programmer lines
+            if (GameObject.Find("PassengerProg...(Clone)").GetComponent<PassProgrammerLines>().exhausted == true) {
+                if (programmerAdvance == true) {
+                    ind = 16;
+                    pInd = 16;
+                }
+                else {
+                    ind = 11;
+                    pInd = 11;
+                }
+                started = true;
+            }
+
             // Start of dialogue
             if (started == false) {
                 started = true;
@@ -247,14 +323,14 @@ public class Talk : MonoBehaviour
             yourLines = GameObject.Find("Sign(Clone)").GetComponent<SignLines>().yourLines;
             if (started == false) {
                 started = true;
-                ind = 0;
+                ind = UnityEngine.Random.Range(0,3);
                 pInd = 0;
                 textComponent.text = "";
                 textComponent2.text = "";
                 StartCoroutine("TypeLine");
             }
             else if (started == true) {
-                NextLine();
+                SignEnd();
             }
 
         }
@@ -332,6 +408,18 @@ public class Talk : MonoBehaviour
         // To Be Continued
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    void SignEnd(){
+        if(textComponent.text == lines[ind]){
+            GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
+            started = false;
+        }
+        else if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
+            StopCoroutine("TypeLine");
+            textComponent.text = lines[ind];
+            textComponent2.text = yourLines[pInd];
+        }
     }
 
     void StartingScene(){

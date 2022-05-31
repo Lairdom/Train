@@ -8,7 +8,7 @@ public class PassProgrammerLines : MonoBehaviour
     public string[] yourLines = {};
     public string[] lines2 = {};
     public string[] yourLines2 = {};
-    public bool advance, exhausted;
+    public bool exhausted;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +34,8 @@ public class PassProgrammerLines : MonoBehaviour
         yourLines[9] = "Why don't you ask yourself?";
         lines[10] = "I uh... I'd feel awkward doing that.";
         yourLines[10] = "Okay... Fine.";
+        lines[11] = "Get going.";
+        yourLines[11] = "...";
 
         lines2[0] = "<i>The programmer is still weirdly excited.</i>";       // Narrative description
         yourLines2[0] = "I talked to her.";

@@ -8,7 +8,7 @@ public class PassHustlerLines : MonoBehaviour
     public string[] yourLines = {};
     public string[] lines2 = {};
     public string[] yourLines2 = {};
-    public bool advance, exhausted;
+    public bool exhausted;
 
     public void KickSound() {
         GetComponent<AudioSource>().Play();

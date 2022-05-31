@@ -8,7 +8,7 @@ public class PassPriestLines : MonoBehaviour
     public string[] yourLines = {};
     public string[] lines2 = {};
     public string[] yourLines2 = {};
-    public bool advance, exhausted;
+    public bool exhausted;
     // Start is called before the first frame update
     void Start()
     {
