@@ -50,6 +50,7 @@ public class Talk : MonoBehaviour
 
     public void NextLine()
     {
+        Debug.Log($"{ind >= lines.Length -1} Here {ind} - {lines.Length -1}");
         if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
                 StopCoroutine("TypeLine");
                 textComponent.text = lines[ind];
@@ -322,14 +323,14 @@ public class Talk : MonoBehaviour
             yourLines = GameObject.Find("Sign(Clone)").GetComponent<SignLines>().yourLines;
             if (started == false) {
                 started = true;
-                ind = 0;
+                ind = UnityEngine.Random.Range(0,3);
                 pInd = 0;
                 textComponent.text = "";
                 textComponent2.text = "";
                 StartCoroutine("TypeLine");
             }
             else if (started == true) {
-                NextLine();
+                SignEnd();
             }
 
         }
@@ -407,6 +408,18 @@ public class Talk : MonoBehaviour
         // To Be Continued
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    void SignEnd(){
+        if(textComponent.text == lines[ind]){
+            GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
+            started = false;
+        }
+        else if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
+            StopCoroutine("TypeLine");
+            textComponent.text = lines[ind];
+            textComponent2.text = yourLines[pInd];
+        }
     }
 
     void StartingScene(){
