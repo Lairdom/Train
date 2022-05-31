@@ -10,9 +10,9 @@ public class SignLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "<i>It just works.</i>";
-        yourLines[1] = "";
-        lines[1] = "Do <b>not</b> press that button !";
+        lines[0] = "<i>It just works.</i>"; // Joona
+        yourLines[0] = "";
+        lines[1] = "Do <b>not</b> press that button !"; // Hrax Keen
     }
 
     // Update is called once per frame
