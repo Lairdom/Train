@@ -22,7 +22,7 @@ public class PreePulse : MonoBehaviour
         if(BtnPressed == true){
             BtnPulse(timer);
         }
-        if(StartTime > 18f){
+        if(StartTime > 10f){
             timer += Time.deltaTime; 
             if (timer <= 0.5 || BtnPressed == true)
             { 
@@ -36,7 +36,7 @@ public class PreePulse : MonoBehaviour
             }
         }
 
-        if (Input.anyKey && BtnPressed == false && StartTime > 18f){
+        if (Input.anyKey && BtnPressed == false && StartTime > 10f){
             Invoke("ScreenFade", 2f);
             Invoke("SwitchScene", 2f);
             timer = 0f;
