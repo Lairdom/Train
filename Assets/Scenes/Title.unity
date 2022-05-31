@@ -410,8 +410,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51.6, y: -87}
-  m_SizeDelta: {x: 450, y: 50}
+  m_AnchoredPosition: {x: 4.9000244, y: 0}
+  m_SizeDelta: {x: 104.199, y: 12}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &847448744
 MonoBehaviour:
@@ -526,7 +526,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7fed9a2dfad7246bde955b2be59566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedScale: 0.4
+  speedScale: 0.02
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   startFadeOut: 1
 --- !u!1 &1887150235
@@ -808,8 +808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 29, y: -20}
-  m_SizeDelta: {x: 450, y: 50}
+  m_AnchoredPosition: {x: 304.23, y: -99}
+  m_SizeDelta: {x: 197.3682, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1894054897
 MonoBehaviour:
@@ -922,7 +922,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
