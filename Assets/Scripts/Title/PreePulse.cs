@@ -29,7 +29,7 @@ public class PreePulse : MonoBehaviour
         }
 
         if (Input.anyKey && BtnPressed == false){
-            Invoke("ScreenFade", 0.4f);
+            Invoke("ScreenFade", 2f);
             Invoke("SwitchScene", 2f);
             timer = 0f;
             BtnPressed = true;
