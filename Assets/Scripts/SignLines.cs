@@ -10,7 +10,7 @@ public class SignLines : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lines[0] = "Your lines here";
+        lines[0] = "<i>It just works.</i>";
         yourLines[0] = "";
     }
 
