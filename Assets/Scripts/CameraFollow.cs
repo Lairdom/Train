@@ -21,7 +21,10 @@ public class CameraFollow : MonoBehaviour
             transform.position = new Vector3(player.transform.position.x,transform.position.y,-10);
         }
         else if (player != null && talk.startEnd == true) {
-            transform.position = new Vector3(target.transform.position.x,transform.position.y,-10);
+            if(target.name != "Doors")
+                transform.position = new Vector3(target.transform.position.x,transform.position.y,-10);
+            else
+                transform.position = new Vector3(target.transform.position.x + 0.14f,transform.position.y,-10);
         }
     }
 }
