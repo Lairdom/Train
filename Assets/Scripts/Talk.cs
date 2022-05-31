@@ -295,11 +295,25 @@ public class Talk : MonoBehaviour
         }
     }
 
-    IEnumerator TypeLine()
+      IEnumerator TypeLine()
     {
+        string apumuuttuja = "";
         // Debug.Log(lines[ind]);
         foreach(char c in lines[ind])
         {
+            if (c.ToString() == "<"){
+                apumuuttuja = c.ToString();
+                continue;
+            }
+            if(apumuuttuja.Length > 0){
+                apumuuttuja += c.ToString();
+
+                if(c.ToString() == ">"){
+                    textComponent.text += apumuuttuja;
+                    apumuuttuja = "";
+                }
+                continue;
+            }
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
