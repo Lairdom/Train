@@ -42,8 +42,8 @@ public class Talk : MonoBehaviour
     void Update()
     {
         if (doorsOpen == true) {
-            GameObject.Find("DoorL").transform.position = Vector2.Lerp(new Vector2(-7.73f,-0.458f), new Vector2(-9.05f,-0.458f),timer);
-            GameObject.Find("DoorR").transform.position = Vector2.Lerp(new Vector2(-6.51f,-0.458f), new Vector2(-5.43f,-0.458f),timer);
+            GameObject.Find("DoorL").transform.localPosition = Vector2.Lerp(new Vector2(-0.62f,-0.458f), new Vector2(-1.81f,-0.458f),timer);
+            GameObject.Find("DoorR").transform.localPosition = Vector2.Lerp(new Vector2(0.59f,-0.458f), new Vector2(1.65f,-0.458f),timer);
             timer += Time.deltaTime;
         }
     }
@@ -306,8 +306,10 @@ public class Talk : MonoBehaviour
     }
 
     IEnumerator Ending() {
+        GameObject.Find("Player").GetComponentInChildren<PlayerExamine>().examining = true;
         BGManager.instance.stopTrain();
         yield return new WaitForSeconds(5);
+        target = GameObject.Find("Doors");
         doorsOpen = true;
         Fade.RequestFade = true;
         // To Be Continued
