@@ -20,6 +20,8 @@ public class Talk : MonoBehaviour
     EnterTraincar train;
     public bool startEnd;
     public GameObject target;
+    bool doorsOpen;
+    float timer;
     
     void Awake(){
         instance = this;
@@ -33,11 +35,16 @@ public class Talk : MonoBehaviour
         train = GameObject.Find("Train").GetComponent<EnterTraincar>();
         end = false; startEnd = false;
         target = GameObject.Find("Player");
+        doorsOpen = false;
     }
 
     void Update()
     {
-        
+        if (doorsOpen == true) {
+            GameObject.Find("DoorL").transform.position = Vector2.Lerp(new Vector2(-7.73f,-0.458f), new Vector2(-9.05f,-0.458f),timer);
+            GameObject.Find("DoorR").transform.position = Vector2.Lerp(new Vector2(-6.51f,-0.458f), new Vector2(-5.43f,-0.458f),timer);
+            timer += Time.deltaTime;
+        }
     }
 
     public void NextLine()
@@ -298,9 +305,9 @@ public class Talk : MonoBehaviour
     }
 
     IEnumerator Ending() {
-        yield return new WaitForSeconds(1);
-        // Train slows down
-        // Door opens
+        BGManager.instance.stopTrain();
+        yield return new WaitForSeconds(5);
+        doorsOpen = true;
         Fade.RequestFade = true;
         // To Be Continued
     }

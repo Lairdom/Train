@@ -21,7 +21,7 @@ public class BGManager : MonoBehaviour
     }
 
     public void startTrain(){
-        MoveSpeed = 0.1f;
+        MoveSpeed = 0.2f;
         startVal = MoveSpeed;
         DestVal = 1f;
         Duration = 10f;
@@ -31,7 +31,7 @@ public class BGManager : MonoBehaviour
     public void stopTrain(){
         startVal = MoveSpeed;
         DestVal = 0f;
-        Duration = 15f;
+        Duration = 5f;
         time = 0f;
     }
 
