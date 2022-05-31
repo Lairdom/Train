@@ -12,6 +12,7 @@ public class EnterTraincar : MonoBehaviour
     [SerializeField] Sprite cargo, train;
     TextMeshPro carNumber;
     GameObject dialog, playerDialog;
+    Animator hustlerAnim;
 
     void MovePlayer() {
         if (player.transform.position.x > 0) {
@@ -33,6 +34,7 @@ public class EnterTraincar : MonoBehaviour
         npc1 = Instantiate(addict,new Vector2(-9f,-0.80f),transform.rotation,this.transform);
         npc2 = Instantiate(hustler,new Vector2(4f,-0.95f),transform.rotation,this.transform);
         npc2.GetComponent<SpriteRenderer>().flipX = true;
+        npc2.GetComponent<Animator>().Play("Character4_idle");
         npc3 = Instantiate(priest,new Vector2(-4f,-0.95f),transform.rotation,this.transform);
         npc4 = Instantiate(parent,new Vector2(-2.25f,-0.95f),transform.rotation,this.transform);
         npc5 = Instantiate(programmer,new Vector2(8f,-0.95f),transform.rotation,this.transform);
