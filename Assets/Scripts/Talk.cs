@@ -251,6 +251,24 @@ public class Talk : MonoBehaviour
 
         }
 
+        else if (name == "Locked") {
+            nimi = name;
+            lines[0] = "Locked";
+            yourLines[0] = "";
+            if (started == false) {
+                started = true;
+                ind = 0;
+                pInd = 0;
+                textComponent.text = "";
+                textComponent2.text = "";
+                StartCoroutine("TypeLine");
+            }
+            else if (started == true) {
+                NextLine();
+            }
+
+        }
+
         else if (name == null && startEnd == true) {
             if (started == false) {
                 target = GameObject.Find("PassengerHustler(Clone)");

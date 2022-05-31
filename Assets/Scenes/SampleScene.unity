@@ -680,8 +680,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSpeed: 0.05
-  lines: []
-  yourLines: []
+  lines:
+  - 
+  yourLines:
+  - 
   textComponent: {fileID: 363608892}
   textComponent2: {fileID: 1018297316}
   parentAdvance: 0
@@ -3028,6 +3030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c215a9acdf65b414281c11ccff024de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInput: {x: 0, y: 0}
 --- !u!212 &2091078430
 SpriteRenderer:
   m_ObjectHideFlags: 0

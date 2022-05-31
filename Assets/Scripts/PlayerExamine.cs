@@ -15,7 +15,6 @@ public class PlayerExamine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         onTrigger = true;
-        Debug.Log(collider);
         col = collider;
     }
     private void OnTriggerExit2D(Collider2D collider) {
@@ -55,7 +54,6 @@ public class PlayerExamine : MonoBehaviour
                     traincar.goPrev = true;
                 }
                 else if (col.gameObject.name == "Sign(Clone)") {
-                    Debug.Log("Sign");
                     examining = true;
                     dialog.gameObject.SetActive(true);
                     // playerDialog.SetActive(true);

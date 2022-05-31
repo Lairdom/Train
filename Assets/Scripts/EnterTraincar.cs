@@ -112,6 +112,10 @@ public class EnterTraincar : MonoBehaviour
             }
             else if (goPrev == true) {
                 Debug.Log("Locked");
+                player.GetComponentInChildren<PlayerExamine>().examining = true;
+                dialog.SetActive(true);
+                //playerDialog.SetActive(true);
+                GameObject.Find("GameManager").GetComponent<Talk>().StartDialogue("Locked");
                 goPrev = false;
             }
         }
@@ -160,6 +164,10 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car4") {
             if (goNext == true) {
                 Debug.Log("Locked");
+                player.GetComponentInChildren<PlayerExamine>().examining = true;
+                dialog.SetActive(true);
+                //playerDialog.SetActive(true);
+                GameObject.Find("GameManager").GetComponent<Talk>().StartDialogue("Locked");
                 goNext = false;
             }
             else if (goPrev == true) {
