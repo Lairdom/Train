@@ -8,12 +8,11 @@ public class PassParentLines : MonoBehaviour
     public string[] yourLines = {};
     public string[] lines2 = {};
     public string[] yourLines2 = {};
-    public bool advance, exhausted;
+    public bool exhausted;
 
     // Start is called before the first frame update
     void Start()
     {
-        advance = false;
         lines[0] = "<i>The woman is sitting, seemingly calm.</i>";                 // Narrative description
         yourLines[0] = "Hey, uh... excuse me.";
         lines[1] = "Mhm?";
@@ -39,6 +38,8 @@ public class PassParentLines : MonoBehaviour
         yourLines2[5] = "";
         lines2[6] = "<i>She shows you a picture of a rough looking guy.</i>";      // Narrative description 
         yourLines2[6] = "I'll go see, thanks.";
+        lines2[7] = "...";
+        yourLines2[7] = "";
     }
 
     // Update is called once per frame
