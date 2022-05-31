@@ -53,6 +53,12 @@ public class PlayerExamine : MonoBehaviour
                 else if (col.gameObject.name == "TrainEntrance") {
                     traincar.goPrev = true;
                 }
+                else if (col.gameObject.name == "Sign") {
+                    examining = true;
+                    dialog.gameObject.SetActive(true);
+                    // playerDialog.SetActive(true);
+                    talk.StartDialogue(col.name);
+                }
             }
         }
         else if (examine == true && onTrigger == false) {

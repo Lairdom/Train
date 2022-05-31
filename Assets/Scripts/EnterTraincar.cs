@@ -7,7 +7,7 @@ public class EnterTraincar : MonoBehaviour
 {
     public string traincar;
     public bool goNext = false, goPrev = false;
-    [SerializeField] GameObject addict, hustler, parent, programmer, priest;
+    [SerializeField] GameObject addict, hustler, parent, programmer, priest, sign;
     GameObject player, npc1, npc2, npc3, npc4, npc5;
     [SerializeField] Sprite cargo, train;
     TextMeshPro carNumber;
@@ -64,6 +64,7 @@ public class EnterTraincar : MonoBehaviour
             carNumber.text = "1";
             GetComponent<SpriteRenderer>().sprite = cargo;
             // Instantiate cargo Objects
+            npc1 = Instantiate(sign,new Vector2(7f,-0.40f),transform.rotation,this.transform);
 
         }
         else if (traincar == "Car1") {
