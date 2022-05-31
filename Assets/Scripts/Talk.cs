@@ -50,7 +50,6 @@ public class Talk : MonoBehaviour
 
     public void NextLine()
     {
-        Debug.Log($"{ind >= lines.Length -1} Here {ind} - {lines.Length -1}");
         if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
                 StopCoroutine("TypeLine");
                 textComponent.text = lines[ind];
@@ -95,13 +94,19 @@ public class Talk : MonoBehaviour
             }
             else if (nimi == "PassengerPriest(Clone)" && priestAdvance == false) {
                 GameObject.Find("PassengerPriest(Clone)").GetComponent<PassPriestLines>().exhausted = true;
+            } else {
+                Debug.Log($"{ind >= lines.Length -1} Here {ind} - {lines.Length -1}");
+                SignEnd();
+                return;
             }
             if (startEnd == true) {
                 StartCoroutine(Ending());
                 startEnd = false;
             }
-            GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
-            started = false;
+            SignEnd();
+            return;
+            //GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
+            //started = false;
             
         }
         if (startEnd == true) {
@@ -118,6 +123,7 @@ public class Talk : MonoBehaviour
             else
                 target = GameObject.Find("Player");
         }
+
     }
 
     public void StartDialogue(string name)
@@ -141,14 +147,14 @@ public class Talk : MonoBehaviour
                 if (parentAdvance == true) {
                     ind = 7;
                     pInd = 7;
-                    textComponent.text = "";
-                    textComponent2.text = "";
+                    // textComponent.text = "";
+                    // textComponent2.text = "";
                 }
                 else {
                     ind = 4;
                     pInd = 4;
-                    textComponent.text = "";
-                    textComponent2.text = "";
+                    // textComponent.text = "";
+                    // textComponent2.text = "";
                 }
                 started = true;
             }
@@ -414,6 +420,8 @@ public class Talk : MonoBehaviour
         if(textComponent.text == lines[ind]){
             GameObject.Find("Examine").GetComponent<PlayerExamine>().examining = false;
             started = false;
+            textComponent.text = "";
+            textComponent2.text = "";
         }
         else if (textComponent.text != lines[ind] || textComponent2.text != yourLines[pInd]) {
             StopCoroutine("TypeLine");
