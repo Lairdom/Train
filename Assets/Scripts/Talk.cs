@@ -320,12 +320,14 @@ public class Talk : MonoBehaviour
     }
 
     IEnumerator Ending() {
+        startEnd = true;
         BGManager.instance.stopTrain();
         yield return new WaitForSeconds(1);
         GameObject.Find("Player").GetComponentInChildren<PlayerExamine>().examining = true;
         yield return new WaitForSeconds(4);
         target = GameObject.Find("Doors");
         doorsOpen = true;
+        yield return new WaitForSeconds(1);
         Fade.RequestFade = true;
         // To Be Continued
         yield return new WaitForSeconds(3f);
