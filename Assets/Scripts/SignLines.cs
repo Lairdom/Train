@@ -11,8 +11,8 @@ public class SignLines : MonoBehaviour
     void Start()
     {
         lines[0] = "<i>It just works.</i>";
-        yourLines[0] = "";
-        lines[0] = "Do <b>not</b> press that button !";
+        yourLines[1] = "";
+        lines[1] = "Do <b>not</b> press that button !";
     }
 
     // Update is called once per frame
