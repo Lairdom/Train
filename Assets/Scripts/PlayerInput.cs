@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     float moveSpeed = 4;
     Animator _animator;
     PlayerExamine examine;
+    float stepDelay;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,11 @@ public class PlayerInput : MonoBehaviour
         playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (Mathf.Abs(playerInput.x) > 0 && Fade.IsFading == false && examine.examining == false) {
             _animator.Play("PlayerWalk");
+            if (stepDelay > 1) {
+                GetComponent<AudioSource>().Play();
+                stepDelay = 0;
+            }
+            stepDelay += Time.deltaTime;
         }
         else 
             _animator.Play("PlayerIdle");

@@ -13,6 +13,8 @@ public class EnterTraincar : MonoBehaviour
     TextMeshPro carNumber;
     GameObject dialog, playerDialog;
     Animator hustlerAnim;
+    AudioSource source;
+    [SerializeField] AudioClip doorOpen;
 
     void MovePlayer() {
         if (player.transform.position.x > 0) {
@@ -87,6 +89,8 @@ public class EnterTraincar : MonoBehaviour
         }
         else if (traincar == "Car4") {
             carNumber.text = "";
+            source.loop = true;
+            source.Play();
             // Instantiate Traincar 4 NPCs & Objects
             npc1 = Instantiate(addict,new Vector2(-9.07f,-0.79f),transform.rotation,this.transform);
             npc2 = Instantiate(hustler,new Vector2(9.6f,-0.87f),transform.rotation,this.transform);
@@ -100,6 +104,7 @@ public class EnterTraincar : MonoBehaviour
         npc1 = Instantiate(parent,new Vector2(-2.11f,-0.95f),transform.rotation,this.transform);
         dialog = GameObject.Find("DialogueBox");
         playerDialog = GameObject.Find("PlayerDialogueBox");
+        source = GameObject.Find("Doors").GetComponent<AudioSource>();
     }
 
     void Update()
@@ -108,6 +113,7 @@ public class EnterTraincar : MonoBehaviour
         if (traincar == "Car0") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 1");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car1";
                 StartCoroutine(ChangeTraincar());
                 goNext = false;
@@ -124,12 +130,14 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car1") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 2");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car2";
                 StartCoroutine(ChangeTraincar());
                 goNext = false;
             }
             else if (goPrev == true) {
                 Debug.Log("Entering Cargo");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car0";
                 StartCoroutine(ChangeTraincar());
                 goPrev = false;
@@ -138,12 +146,14 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car2") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 3");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car3";
                 StartCoroutine(ChangeTraincar());
                 goNext = false;
             }
             else if (goPrev == true) {
                 Debug.Log("Entering Traincar 1");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car1";
                 StartCoroutine(ChangeTraincar());
                 goPrev = false;
@@ -152,12 +162,14 @@ public class EnterTraincar : MonoBehaviour
         else if (traincar == "Car3") {
             if (goNext == true) {
                 Debug.Log("Entering Traincar 4");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car4";
                 StartCoroutine(ChangeTraincar());
                 goNext = false;
             }
             else if (goPrev == true) {
                 Debug.Log("Entering Traincar 2");
+                source.PlayOneShot(doorOpen);
                 traincar = "Car2";
                 StartCoroutine(ChangeTraincar());
                 goPrev = false;
@@ -174,6 +186,8 @@ public class EnterTraincar : MonoBehaviour
             }
             else if (goPrev == true) {
                 Debug.Log("Entering Traincar 3");
+                source.loop = false;
+                source.PlayOneShot(doorOpen);
                 traincar = "Car3";
                 StartCoroutine(ChangeTraincar());
                 goPrev = false;
