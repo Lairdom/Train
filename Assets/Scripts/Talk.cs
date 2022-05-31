@@ -346,6 +346,7 @@ public class Talk : MonoBehaviour
 
         else if (name == "Locked") {
             nimi = name;
+            // string[] locked = {"Locked"};
             lines[0] = "Locked";
             yourLines[0] = "";
             if (started == false) {
@@ -357,9 +358,8 @@ public class Talk : MonoBehaviour
                 StartCoroutine("TypeLine");
             }
             else if (started == true) {
-                NextLine();
+                SignEnd();
             }
-
         }
 
         else if (name == null && startEnd == true) {
