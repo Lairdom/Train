@@ -22,6 +22,12 @@ public class PassAddictLines : MonoBehaviour
         yourLines[3] = "I'm not... tripping.";
         lines[4] = "You look real jumpy.";
         yourLines[4] = "It's okay, thanks...";
+        lines[5] = "Hey! One more thing.";
+        yourLines[5] = "Yes?";
+        lines[6] = "Got a light?";
+        yourLines[6] = "Don't you have a lit cigarette already?";
+        lines[7] = "Oh, you're right. Thanks man.";
+        yourLines[7] = "...";
     }
 
     // Update is called once per frame
