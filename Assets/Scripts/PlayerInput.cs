@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    Vector2 playerInput;
+    public Vector2 playerInput;
     float moveSpeed = 4;
     Animator _animator;
     PlayerExamine examine;

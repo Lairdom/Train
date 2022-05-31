@@ -7,12 +7,15 @@ public class Parallax : MonoBehaviour
     GameObject TargetObject;
     [SerializeField] float MoveSpeed, BGWidth;
 
+    PlayerInput PlayerInputs;
+
     float playerInput;
 
     float Distance;
     // Start is called before the first frame update
     void Start()
     {
+        PlayerInputs = GameObject.Find("Player").GetComponent<PlayerInput>();
         TargetObject = transform.parent.gameObject;
         Invoke("TrainStart", 2f);
     }
@@ -20,7 +23,7 @@ public class Parallax : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInput = (Input.GetAxisRaw("Horizontal"));
+        playerInput = PlayerInputs.playerInput.x;//(Input.GetAxisRaw("Horizontal"));
         if(Fade.IsFading == false && GameObject.Find("DialogueBox") == null){
             if (playerInput < 0f) {
                 playerInput = -3;
