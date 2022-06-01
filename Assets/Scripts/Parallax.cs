@@ -17,7 +17,7 @@ public class Parallax : MonoBehaviour
     {
         PlayerInputs = GameObject.Find("Player").GetComponent<PlayerInput>();
         TargetObject = transform.parent.gameObject;
-        Invoke("TrainStart", 2f);
+        //Invoke("TrainStart", 2f);
     }
 
     // Update is called once per frame

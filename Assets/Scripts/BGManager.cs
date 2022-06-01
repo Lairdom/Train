@@ -14,7 +14,7 @@ public class BGManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        MoveSpeed = 0;
+        MoveSpeed = 1;
         DestVal = 0f;
         Duration = 0f;
         time = 0f;

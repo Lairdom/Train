@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Teksti: {fileID: 121327743}
+  Logo: {fileID: 1894054897}
+  Er: {fileID: 847448744}
   Col1: {r: 1, g: 0.713982, b: 0, a: 1}
   Col2: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &589549056
@@ -806,11 +808,11 @@ RectTransform:
   m_Father: {fileID: 589549060}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304.23, y: -99}
-  m_SizeDelta: {x: 197.3682, y: 50}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -99}
+  m_SizeDelta: {x: 425, y: 50}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1894054897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Train
+  m_text: The Train
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57b8d234449dbad4d9a4972257f982d3, type: 2}
   m_sharedMaterial: {fileID: 2565400568063907684, guid: 57b8d234449dbad4d9a4972257f982d3, type: 2}
@@ -865,7 +867,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
